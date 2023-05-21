@@ -5,7 +5,7 @@ Sistema de Gestión de Citas Médicas y Farmacia Online
 
 El proyecto es un sistema que relaciona doctores y pacientes a través de citas médicas. Los pacientes pueden visualizar los doctores disponibles por especialidad y ubicación utilizando una API de ubicación integrada. También pueden solicitar citas médicas con doctores particulares, hospitales, clínicas, etc. Además, el sistema cuenta con una funcionalidad de farmacia en línea donde los pacientes pueden conseguir los medicamentos recetados por los doctores y solicitar su envío a domicilio. El sistema integra una API de PayPal para realizar pagos y cobros dentro del sistema. Además, incluye un apartado de emergencias que notifica a los hospitales más cercanos.
 
-## Estrucutra del proyecto
+## Estructra del proyecto
 
 El sistema sigue una arquitectura Modelo Vista Controlador a 4 capas (MVC), y la estructura del proyecto está organizada de la siguiente manera:
 
