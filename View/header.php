@@ -22,6 +22,12 @@
             </ul>
           </li>
           <li><a href="GUI_Emergencia.php">Emergencias</a></li>
+          <li class="dropdown"><a href="#"><span>Extras</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="./GUI_SegurosMedicos.php">Seguros Médicos</a></li>
+              <li><a href="#">Farmacia</a></li>
+            </ul>
+          </li>
           <li><a href="GUI_IniciarSesion.php">Iniciar Sesión</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
