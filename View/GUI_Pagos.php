@@ -32,19 +32,8 @@
 	<link href="assets/css/style1.css" rel="stylesheet">
 
 	<!-- Template tailwind CSS -->
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            easyLetter: '#6D6D6D',
-						greenModified: '#198754'
-          }
-        }
-      }
-    }
-  </script>
+	<link href="./assets/css/output.css" rel="stylesheet">
+
 
 </head>
 
@@ -57,9 +46,9 @@
 
 		<div class="pagetitle">
 			<h1>Mis pagos</h1>
-		</div><!-- End Page Title -->
+		</div>
 
-		<div class="flex flex-col space-y-5 w-full">
+		<div class="flex flex-col w-full">
 
 			<!-- payment ITEM -->
 			<div class="flex w-full m-auto space-x-5 mt-2 p-2 px-4 bg-white 
@@ -68,7 +57,7 @@
 			>
 				<div class="flex flex-col m-2 w-full">
 					<h3
-						class="font-bold text-xl"
+						class="font-bold text-lg"
 					>
 						Compra de Nepro HP para insuficiencia renal
 					</h3>
@@ -110,9 +99,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="flex flex-col space-y-4 py-3 items-center w-1/3 items-center">
+				<div class="flex flex-col space-y-4 py-3 items-center w-1/3">
 					<img 
-						src="../View/assets/img/payments/MASTER.png" alt="MasterCard"
+						src="../View/assets/img/payments/mastercard.png" alt="MasterCard"
 						class="w-24 self-center"
 						>
 					<button class="text-white rounded h-8
