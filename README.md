@@ -1,6 +1,3 @@
-# Easy Health project
-
-## srcipts
 # EASY HEALTH 
 Sistema de Gestión de Citas Médicas y Farmacia Online
 
