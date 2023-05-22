@@ -41,7 +41,7 @@
 	include 'header1.php'
 	?>
 	<main id="main" class="main">
-		<div class="flex flex-col space-y-30 space-y-3">
+		<div class="flex flex-col space-y-30 space-y-3 pb-3">
 			<div class="flex flex-col space-y-5">
 				<div class="pagetitle">
 					<h1>Datos generales del paciente</h1>
