@@ -2346,3 +2346,15 @@ section {
 #footer .credits a {
   color: #a2cce3;
 }
+
+.style-card{
+  height: 350px;
+}
+
+.style-card img{
+  width: 150px;
+}
+
+.price-medicine{
+  color: #012970;
+}
