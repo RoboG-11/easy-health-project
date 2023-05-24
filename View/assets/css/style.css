@@ -1512,6 +1512,38 @@ section {
   line-height: 0;
   font-size: 18px;
 }
+/*--------------------------------------------------------------
+# Team
+--------------------------------------------------------------*/
+.seguros{
+  background: #fff;
+  padding-bottom: 30px;
+}
+
+.seguros .seguro {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.seguros .seguro .seguro-img {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+.seguros .seguro .seguro-info h4 {
+  color: black;
+  font-weight: 700;
+  margin: 15px 0 5px 0;
+  font-size: 26px;
+}
+
+.seguros .seguro .seguro-info p {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 26px;
+  color: #666;
+}
 
 /*--------------------------------------------------------------
 # Contact
@@ -2345,4 +2377,16 @@ section {
 
 #footer .credits a {
   color: #a2cce3;
+}
+
+.style-card{
+  height: 350px;
+}
+
+.style-card img{
+  width: 150px;
+}
+
+.price-medicine{
+  color: #012970;
 }
