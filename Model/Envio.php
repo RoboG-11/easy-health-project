@@ -1,6 +1,6 @@
 <?php
 class Envio {
-    public $direccion=Direccion;
+    public Direccion $direccion;
     
 
     public function __construct($direccion){

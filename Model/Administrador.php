@@ -1,12 +1,10 @@
 <?php
 class Administrador extends Cuenta{
-    public $contraseña=string;
+    public $contraseña;
 
-    public function __construct($nombre,$apellido,$tel,$edad,$direccion,$contraseña){
-        parent::__construct($nombre,$apellido,$tel,$edad,$direccion);
-        $this->especialidad=$especialidad;
-        $this->cedulaProfesional=$cedulaProfesional;
-        $this->formacion=$formacion;
+    public function __construct($nombre,$apellido,$telefono,$correo,$direccion,$contraseña){
+        parent::__construct($nombre,$apellido,$telefono,$correo,$contraseña,$direccion);
+        $this->contraseña=$contraseña;
     }
 
 }

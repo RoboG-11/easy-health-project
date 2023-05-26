@@ -1,8 +1,8 @@
 <?php
 class Establecimiento {
-    public $nombre=string;
-    public $direccion = Direccion;
-    public $especialidad=Especialidad;
+    public $nombre;
+    public Direccion $direccion ;
+    public Especialidad $especialidad;
 
 
     public function __construct($nombre,$direccion,$especialidad){

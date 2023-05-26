@@ -1,11 +1,11 @@
 <?php
 class Direccion{
-    public $calle = string;
-    public $numInterior = int;
-    public $numExterior= string;
-    public $colonia = string;
-    public $ciudad = string;
-    public $CP= int;
+    public $calle ;
+    public $numInterior ;
+    public $numExterior;
+    public $colonia ;
+    public $ciudad ;
+    public $CP;
 
     public function __construct($calle,$numInterior,$numExterior,$colonia,$ciudad,$CP){
         $this->calle=$calle;

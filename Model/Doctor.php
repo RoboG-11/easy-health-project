@@ -1,11 +1,11 @@
 <?php
 class Doctor extends Cuenta {
-    public $especialidad= string;
-    public $cedulaProfesional= string;
-    public $formacion= string;
+    public $especialidad;
+    public $cedulaProfesional;
+    public $formacion;
 
-    public function __construct($nombre,$apellido,$tel,$edad,$direccion,$especialidad,$cedulaProfesional,$formacion){
-        parent::__construct($nombre,$apellido,$tel,$edad,$direccion);
+    public function __construct($nombre,$apellido,$telefono,$correo,$contraseña,$direccion,$especialidad,$cedulaProfesional,$formacion){
+        parent::__construct($nombre,$apellido,$telefono,$correo,$contraseña,$direccion);
         $this->especialidad=$especialidad;
         $this->cedulaProfesional=$cedulaProfesional;
         $this->formacion=$formacion;

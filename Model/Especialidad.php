@@ -1,6 +1,6 @@
 <?php
 class Especialidad {
-    public $especialidad=string;
+    public $especialidad;
 
     public function __construct($especialidad){
         $this->especialidad=$especialidad;

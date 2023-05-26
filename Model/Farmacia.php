@@ -1,6 +1,6 @@
 <?php
 class Farmacia {
-    public $medicamento = Medicamento;
+    public Medicamento $medicamento;
     
     public function __construct($medicamento){
         $this->medicamento=$medicamento;

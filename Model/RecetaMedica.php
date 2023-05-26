@@ -1,9 +1,9 @@
 <?php
 class RecetaMedica {
-    public $fecha = string;
-    public $paciente = Paciente;
-    public $doctor = Doctor;
-    public $medicamento = Medicamento;
+    public $fecha ;
+    public Paciente $paciente;
+    public Doctor $doctor ;
+    public Medicamento $medicamento;
     
     public function __construct($fecha,$paciente,$doctor,$medicamento){
         $this->fecha=$fecha;

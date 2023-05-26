@@ -1,11 +1,11 @@
 <?php
 class Cuenta {
-    public $nombre = string;
-    public $apellido = string;
-    public $telefono = string;
-    public $correo= string;
-    public $contraseña = string;
-    public $direccion= string;
+    public $nombre;
+    public $apellido;
+    public $telefono;
+    public $correo;
+    public $contraseña;
+    public $direccion;
 
 
 
