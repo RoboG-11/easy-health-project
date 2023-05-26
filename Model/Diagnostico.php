@@ -1,9 +1,9 @@
 <?php
 class Diagnostico {
-    public $doctor= Doctor;
-    public $paciente= Paciente;
-    public $fecha= string;
-    public $descripcion= string;
+    public Doctor $doctor;
+    public Paciente $paciente;
+    public $fecha;
+    public $descripcion;
 
     public function __construct($doctor,$paciente,$fecha,$descripcion){
         $this->doctor=$doctor;

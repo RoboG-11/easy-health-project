@@ -1,8 +1,8 @@
 <?php
 class CitaMedica {
-    public $doctor=Doctor;
-    public $paciente = Paciente;
-    public $horario = Horario;
+    public Doctor $doctor;
+    public Paciente $paciente ;
+    public Horario $horario;
 
     public function __construct($doctor,$paciente,$horario){
         $this->doctor=$doctor;

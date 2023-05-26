@@ -1,6 +1,6 @@
 <?php
 class SeguroMedico {
-    public $NSS=string;
+    public $NSS;
 
 
     public function __construct($NSS){

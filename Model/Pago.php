@@ -1,13 +1,13 @@
 <?php
 class Pago {
-    public $fecha=string;
-    public $monto = int;
-    public $descripcion=string;
+    public $fecha;
+    public $monto;
+    public $descripcion;
 
 
     public function __construct($fecha,$monto,$descripcion){
         $this->fecha=$fecha;
-        $this->direccion=$direccion;
+        $this->descripcion=$descripcion;
         $this->monto=$monto;
     }
 

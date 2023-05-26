@@ -1,7 +1,7 @@
 <?php
 class Emergencia {
-    public $paciente = Paciente;
-    public $establecimiento = Establecimiento;
+    public Paciente $paciente;
+    public Establecimiento $establecimiento;
 
     public function __construct($paciente,$establecimiento){
         $this->paciente=$paciente;

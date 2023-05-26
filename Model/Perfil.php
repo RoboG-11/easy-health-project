@@ -1,6 +1,6 @@
 <?php
 class Perfil {
-    public $photo = string;
+    public $photo;
     
     public function __construct($photo){
         $this->photo=$photo;
