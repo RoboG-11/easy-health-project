@@ -1,8 +1,10 @@
 <?php
 include("FabricaCitaMedica.php");
-
+include("FabricaRecetaMedica.php");
+include("RecetaMedica.php");
 include("CitaMedica.php");
 include("Paciente.php");
+include("Medicamento.php");
 include("Doctor.php");
 include("Horario.php");
 include("Establecimiento.php");
@@ -13,5 +15,12 @@ $establecimiento = new Establecimiento("Hospital","CALZ DESIERTO","faf");
 
 $fabritaCitaMedica = new FabricaCitaMedica();
 $fabritaCitaMedica->creaCitaMedica($doctor,$paciente,$horario,$establecimiento);
-$citamedica=$fabritaCitaMedica->getCitaMedica();
-$citamedica->visualizaCitaMedica();
+$citaMedica=$fabritaCitaMedica->getObjeto();
+$citaMedica->visualizaCitaMedica();
+
+$fabritaRecetaMedica = new FabricaRecetaMedica();
+$fabritaRecetaMedica->creaRecetaMedica($citaMedica,"Cancer","Cancer muy fuerte");
+$recetaMedica=$fabritaRecetaMedica->getObjeto();
+$medicamento = new Medicamento("Aspirina","Mañana","Quita dolor de cabeza");
+$recetaMedica->añadirMedicamento($medicamento);
+$recetaMedica->visualizaRecetaMedica();
