@@ -1,5 +1,6 @@
 <?php
 include_once 'RecetaAbstracta.php';
+include_once '../Cliente/Medicamento.php';
 class RecetaMedica extends RecetaAbstracta{
     public CitaMedica $citaMedica;
     public Medicamento $medicamento;

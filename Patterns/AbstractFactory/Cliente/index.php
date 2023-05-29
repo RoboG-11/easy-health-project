@@ -1,10 +1,9 @@
 <?php
-include("FabricaCitaMedica.php");
-include("FabricaRecetaMedica.php");
-include("RecetaMedica.php");
-include("CitaMedica.php");
+include("../Factory/FabricaCitaMedica.php");
+include("../Factory/FabricaRecetaMedica.php");
+include("../Factory/RecetaMedica.php");
+include("../Factory/CitaMedica.php");
 include("Paciente.php");
-include("Medicamento.php");
 include("Doctor.php");
 include("Horario.php");
 include("Establecimiento.php");
