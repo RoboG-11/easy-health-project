@@ -2,9 +2,9 @@
 require_once './Decorador_Carrito.php';
 
 class Carrito_InfoPago extends Decorador_Carrito {
-	private $nombreUsuario;
-	private $formaDePago;
-	private $monto;
+	protected $nombreUsuario;
+	protected $formaDePago;
+	protected $monto;
 
 	public function __construct($carrito,$nombreUsuario, $formaDePago, $monto){
 		parent::__construct($carrito);

@@ -3,7 +3,7 @@ require_once './I_Carrito.php';
 
 class Decorador_Carrito implements I_Carrito {
 
-	private Carrito $carrito;
+	protected I_Carrito $carrito;
 
 	public function __construct($car){
 		$this->carrito = $car;
@@ -17,5 +17,9 @@ class Decorador_Carrito implements I_Carrito {
 	}
 	public function eliminarProducto($nombre_Producto){
 		//
+	}
+
+	public function getCarrito(){
+		return $this->carrito;
 	}
 }

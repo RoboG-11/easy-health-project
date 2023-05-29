@@ -3,11 +3,13 @@ require_once './Decorador_Carrito.php';
 
 class Compra extends Decorador_Carrito{
 	
-	private $idPago;
-	private $fechaPago;
+	protected $idPago;
+	protected $fechaPago;
+	protected $carritoInfoPago;
 
-	public function __construct($carrito_InfoPago, $idPago, $fechaPago){
-		parent ::__construct($carrito_InfoPago);
+	public function __construct(Carrito_InfoPAgo $carritoInfoPago, $idPago, $fechaPago){
+		parent ::__construct($carritoInfoPago);
+		$this->carritoInfoPago = $carritoInfoPago;
 		$this->idPago = $idPago;
 		$this->fechaPago = $fechaPago;
 	}
@@ -33,12 +35,15 @@ class Compra extends Decorador_Carrito{
 	}
 
 	public function agregarProducto($nombre_Producto){
-		// array_push(parent::getProductos(), $nombre_Producto);
+		// deactivated
 	}
 	public function eliminarProducto($nombre_Producto){
-		//
+		// deactivated
 	}
 
+	public function getCarrito(){
+		return $this->carritoInfoPago;
+	}
 }
 
 ?>
