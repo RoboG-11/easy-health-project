@@ -108,7 +108,7 @@
                     <label for="yourPassword" class="form-label">Ocupación:</label>
                   <div class="col-sm-10">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="rol" id="gridRadios1" value="1" checked>
+                      <input class="form-check-input" type="radio" name="rol" id="gridRadios1" value="3" checked>
                       <label class="form-check-label" for="gridRadios1">
                         Paciente
                       </label>

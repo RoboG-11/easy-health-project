@@ -10,8 +10,8 @@ class ConectorBD
 
   public function __construct()
   {
-    $this->host = 'localhost:3307';
-    $this->db = 'proxy';
+    $this->host = 'localhost:3308';
+    $this->db = 'easyhealth';
     $this->user = 'root';
     $this->password = "";
     $this->charset = 'utf8mb4';
@@ -33,6 +33,53 @@ class ConectorBD
     }
   }
 
+  public function userExists($email, $password)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $md5pass = md5($password);
+
+      $query = $connection->prepare("SELECT * FROM cuentas WHERE correo = :user AND password = :pass");
+      $query->execute(['user' => $email, 'pass' => $md5pass]);
+
+      if ($query->rowCount()) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function register($nombre, $apellido, $telefono, $correo, $password, $direccion, $rol)
+  {
+
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $md5pass = md5($password);
+
+      $query = $connection->prepare("INSERT INTO cuentas (Id_Rol, correo, password, nombre, apellido, 
+      telefono, Id_Direccion_C) VALUES ('$rol', '$correo', '$md5pass', '$nombre', '$apellido', '$telefono',
+      '$direccion')");
+
+      if ($query->execute()) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
+
+
+
+  /************************************************************/
   public function getUserInfo($email)
   {
     $connection = $this->connect();
@@ -63,26 +110,6 @@ class ConectorBD
       $query->execute(['newEmail' => $newEmail, 'email' => $email]);
 
       return $query->rowCount() > 0;
-    } else {
-      throw new Exception("Error de conexión a la base de datos");
-    }
-  }
-
-  public function userExists($email, $password)
-  {
-    $connection = $this->connect();
-
-    if ($connection !== null) {
-      $md5pass = md5($password);
-
-      $query = $connection->prepare("SELECT * FROM usuario WHERE email = :user AND password = :pass");
-      $query->execute(['user' => $email, 'pass' => $md5pass]);
-
-      if ($query->rowCount()) {
-        return true;
-      } else {
-        return false;
-      }
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }
