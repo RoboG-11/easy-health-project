@@ -1,5 +1,3 @@
-
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -31,38 +29,12 @@
 
 <body>
   <!-- ======= Header ======= -->
-<header id="header" class="fixed-top d-flex align-items-center header-transparent">
-    <div class="container d-flex justify-content-between align-items-center">
 
-      <div class="logo">
-        <h1 class="text-light"><a href="GUI_Principal.php"><span>Easy Health</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="active " href="GUI_Principal.php">Inicio</a></li>
-          <li><a href="GUI_Doctores.php">Doctores</a></li>
-          <li><a href="GUI_Establecimiento.php">Establecimientos</a></li>
-          <li class="dropdown"><a href="#"><span>Especialidades</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Nefrología</a></li>
-              <li><a href="#">Cardiología</a></li>
-              <li><a href="#">Pediatría</a></li>
-              <li><a href="#">Dermatología</a></li>
-            </ul>
-          </li>
-          <li><a href="GUI_Emergencia.php">Emergencias</a></li>
-          <li><a href="GUI_IniciarSesion.php">Iniciar Sesión</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header>
+  <?php
+  include 'header.php';
+  ?>
   <!-- End Header -->
-  
+
   <!-- ======= Hero No Slider Section ======= -->
   <section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
@@ -81,7 +53,7 @@
     <section class="services">
       <div class="container">
 
-        <div class="row"> 
+        <div class="row">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
             <div class="icon-box icon-box-pink">
               <div class="icon"><i class="bi bi-heart-pulse"></i></div>
