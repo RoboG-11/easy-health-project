@@ -79,61 +79,61 @@
 
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
+              <img src="Medicamentos/picot">
+              <p class="m-0 fw-bold fs-5">Sal de uvas picot Polvo Efervescente</p>
+              <span class="m-0 fw-light">Polvo Sobre Bicarbonato de sodio 2.485 G</span>
+              <p class="price-medicine m-0 fw-bold fs-5">$36.00 MXN</p>
+              <button class="btn btn-primary">Añadir al carrito</button>
             </div>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
+              <img src="Medicamentos/tempra">
+              <p class="m-0 fw-bold fs-5">Tempra</p>
+              <span class="m-0 fw-light">Tableta Caja Paracetamol 500 MG</span>
+              <p class="price-medicine m-0 fw-bold fs-5">$55.00 MXN</p>
+              <button class="btn btn-primary">Añadir al carrito</button>
             </div>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
+              <img src="Medicamentos/silkaMedic">
+              <p class="m-0 fw-bold fs-5">Silka Medic Gel para Pie de Atleta</p>
+              <span class="m-0 fw-light">30 G Gel Tubo Terbinafina 1 G</span>
+              <p class="price-medicine m-0 fw-bold fs-5">$123.50 MXN</p>
+              <button class="btn btn-primary">Añadir al carrito</button>
             </div>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
+              <img src="Medicamentos/proteina">
+              <p class="m-0 fw-bold fs-5">Falcon Proteína Orgánica Vainilla</p>
+              <span class="m-0 fw-light">1.17 KG Polvo Bote</span>
+              <p class="price-medicine m-0 fw-bold fs-5">$1,069.00 MXN</p>
+              <button class="btn btn-primary">Añadir al carrito</button>
             </div>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
+              <img src="Medicamentos/glucometro">
+              <p class="m-0 fw-bold fs-5">Contour Plus Diabetes Glucometro</p>
+              <span class="m-0 fw-light">1 Pieza Caja</span>
+              <p class="price-medicine m-0 fw-bold fs-5">$399.00 MXN</p>
+              <button class="btn btn-primary">Añadir al carrito</button>
             </div>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
+              <img src="Medicamentos/pañales">
+              <p class="m-0 fw-bold fs-5">Bbtips Pañales unisex Etapa 4</p>
+              <span class="m-0 fw-light">40 Piezas Bolsa</span>
+              <p class="price-medicine m-0 fw-bold fs-5">$170.00 MXN</p>
+              <button class="btn btn-primary">Añadir al carrito</button>
             </div>
           </div>
 
