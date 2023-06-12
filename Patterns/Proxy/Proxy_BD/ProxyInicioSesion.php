@@ -3,8 +3,6 @@
 //include_once 'IUsuario.php';
 include_once 'conectorBD.php';
 
-echo "Estoy en el Proxy";
-
 class ProxyInicioSesion
 {
     private $conector;
