@@ -13,7 +13,7 @@ class ConectorBD
     $this->host = 'localhost:3308';
     $this->db = 'easyhealth';
     $this->user = 'root';
-    $this->password = "NegritO2001";
+    $this->password = "";
     $this->charset = 'utf8mb4';
   }
 
