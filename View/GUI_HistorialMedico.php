@@ -38,8 +38,6 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
 	<!-- Template Main CSS File -->
 	<link href="assets/css/style1.css" rel="stylesheet">
 	<link href="./assets/css/output.css" rel="stylesheet">
-	<!-- Template tailwind CSS -->
-	<link href="./assets/css/output.css" rel="stylesheet">
 	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 	<!--------LINK BOOTSTRAP---------->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />

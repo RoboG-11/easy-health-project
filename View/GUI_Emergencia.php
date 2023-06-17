@@ -26,7 +26,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Moderna - v4.11.0
@@ -59,28 +59,30 @@
       </div>
     </section><!-- End Contact Section -->
 
-    <!-- ======= Contact Section ======= -->
     <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
       <div class="container">
-
         <div class="row">
-
           <div class="col-lg-12">
-              <div class="row">
-              </div>
-                <div class="text-center">
-                  <h3 class="bi bi-hospital"></h3>
-                  <h3>Solicitar Emergencia</h3>
-                  <p>Selecciona una opcion:</p>
-                  <a href="index.html"  class="btn btn-link">Cancelar</a>
-            <button type="button" class="btn btn-primary">Solicitar Emergencia</button></div>
+            <div class="row">
+            </div>
+            <div class="text-center">
+              <h3 class="bi bi-hospital"></h3>
+              <h3>Solicitar Emergencia</h3>
+              <p>Selecciona una opción:</p>
+              <a href="index.html" class="btn btn-link">Cancelar</a>
+              <button type="button" id="showPopupBtn" class="btn btn-primary">Solicitar Emergencia</button>
+            </div>
           </div>
-
+          <div id="popupMessage" class="popup">
+            <h3>Emergencia solicitada</h3>
+            <p>Si deseas cancelarla aprieta "cerrar".</p>
+            <button id="closePopupBtn">Cerrar</button>
+          </div>
         </div>
-
       </div>
     </section>
-    <!-- End Contact Section -->
+
+
 
     <!-- ======= Map Section ======= -->
     <section class="map mt-2">
@@ -109,7 +111,29 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    // Obtener referencia al botón "Solicitar Emergencia"
+    const showPopupBtn = document.getElementById('showPopupBtn');
 
+    // Obtener referencia al mensaje emergente
+    const popupMessage = document.getElementById('popupMessage');
+
+    // Mostrar el mensaje emergente al hacer clic en el botón "Solicitar Emergencia"
+    showPopupBtn.addEventListener('click', () => {
+      popupMessage.style.display = 'block';
+    });
+
+    // Ocultar el mensaje emergente al hacer clic en el botón de cerrar
+    const closePopupBtn = document.getElementById('closePopupBtn');
+    closePopupBtn.addEventListener('click', () => {
+      popupMessage.style.display = 'none';
+    });
+
+    // Ocultar el mensaje emergente por defecto
+    window.addEventListener('DOMContentLoaded', () => {
+      popupMessage.style.display = 'none';
+    });
+  </script>
 </body>
 
 </html>
