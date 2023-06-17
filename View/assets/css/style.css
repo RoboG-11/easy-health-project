@@ -2391,6 +2391,29 @@ section {
   color: #012970;
 }
 
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Cambia el color de fondo a blanco */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+.contact {
+  position: relative; /* Añade posición relativa al contenedor principal */
+}
+
+.popup {
+  position: absolute; /* Cambia la posición a absoluta */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .divCart{
   display: flex;
   width: 100%;
@@ -2400,3 +2423,4 @@ section {
 .divCart .hero {
   scale: 10;
 }
+

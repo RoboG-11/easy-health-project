@@ -162,7 +162,7 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
                       </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <!-- <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nombre completo</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
@@ -187,6 +187,65 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="email" type="email" class="form-control" id="Email" value="kary@gmail.com">
+                      </div>
+                    </div> -->
+                    <div class="row mb-3">
+                      <label for="sexo" class="col-md-4 col-lg-3 col-form-label">Sexo:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <select name="sexo" class="form-select" id="sexo">
+                          <option value="masculino">Masculino</option>
+                          <option value="femenino">Femenino</option>
+                          <option value="otro">Otro</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="edad" class="col-md-4 col-lg-3 col-form-label">Edad:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="edad" type="number" class="form-control" id="edad">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="peso" class="col-md-4 col-lg-3 col-form-label">Peso:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="peso" type="number" class="form-control" id="peso">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="fechaNacimiento" class="col-md-4 col-lg-3 col-form-label">Fecha de Nacimiento:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="fechaNacimiento" type="date" class="form-control" id="fechaNacimiento">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="nacionalidad" class="col-md-4 col-lg-3 col-form-label">Nacionalidad:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="nacionalidad" type="text" class="form-control" id="nacionalidad">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="enfermedadCronica" class="col-md-4 col-lg-3 col-form-label">Enfermedad Crónica:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="enfermedadCronica" type="text" class="form-control" id="enfermedadCronica">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="alergias" class="col-md-4 col-lg-3 col-form-label">Alergias:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="alergias" type="text" class="form-control" id="alergias">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="nss" class="col-md-4 col-lg-3 col-form-label">NSS:</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="nss" type="text" class="form-control" id="nss">
                       </div>
                     </div>
 

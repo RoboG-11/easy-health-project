@@ -25,7 +25,7 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style1.css" rel="stylesheet">
-  
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style1.css" rel="stylesheet">
 
@@ -77,56 +77,70 @@
               </ul>
               <div class="tab-content pt-2" id="borderedTabJustifiedContent">
                 <div class="tab-pane fade show active" id="bordered-justified-home" role="tabpanel" aria-labelledby="home-tab">
-                    <h5 class="card-title">Agendar cita médica</h5>
-                    
-                    <!-- General Form Elements -->
-                    <form action="../Controller/Oyente_Citas.php" method="POST"> 
-                      <div class="row mb-3">
-                        <label for="inputDate" class="col-sm-2 col-form-label">Fecha:</label>
-                        <div class="col-sm-10">
-                          <input type="date" class="form-control">
-                        </div>
+                  <h5 class="card-title">Agendar cita médica</h5>
+
+                  <!-- General Form Elements -->
+                  <form action="../Controller/Oyente_Citas.php" method="POST">
+                    <div class="row mb-3">
+                      <label for="inputDate" class="col-sm-2 col-form-label">Fecha:</label>
+                      <div class="col-sm-10">
+                        <input type="date" class="form-control" name="fecha">
                       </div>
-                      <div class="row mb-3">
-                        <label for="inputTime" class="col-sm-2 col-form-label">Horario:</label>
-                        <div class="col-sm-10">
-                          <input type="time" class="form-control">
-                        </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputTime" class="col-sm-2 col-form-label">Horario:</label>
+                      <div class="col-sm-10">
+                        <input type="time" class="form-control" name="horario">
                       </div>
-                      
-                      <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Doctor:</label>
-                        <div class="col-sm-10">
-                          <select class="form-select" multiple aria-label="multiple select example">
-                            <option selected>Elige un doctor</option>
-                            <option value="1">Walter White</option>
-                            <option value="2">Sarah Jhonson</option>
-                            <option value="3">William Anderson</option>
-                          </select>
-                        </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label class="col-sm-2 col-form-label">Establecimiento:</label>
+                      <div class="col-sm-10">
+                        <select class="form-select" multiple aria-label="multiple select example" name="establecimiento">
+                          <option selected>Elige un establecimento</option>
+                          <option value="El ABC">El ABC</option>
+                          <option value="El Angeles">El Angeles</option>
+                          <option value="El Star medica">El Star medica</option>
+                          <option value="El IMSS">El IMSS</option>
+                        </select>
                       </div>
-      
-                      <div class="row mb-6">
-                        <div  align="right">
-                          <button type="submit" class="btn btn-primary" >Agendar</button>
-                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label class="col-sm-2 col-form-label">Doctor:</label>
+                      <div class="col-sm-10">
+                        <select class="form-select" multiple aria-label="multiple select example" name="doctor">
+                          <option selected>Elige un doctor</option>
+                          <option value="Walter White">Walter White</option>
+                          <option value="Sarah Jhonson">Sarah Jhonson</option>
+                          <option value="William Anderson">William Anderson</option>
+                        </select>
                       </div>
-      
-                    </form><!-- End General Form Elements --> 
+                    </div>
+
+
+                    <div class="row mb-6">
+                      <div align="right">
+                        <button type="submit" class="btn btn-primary">Agendar</button>
+                      </div>
+                    </div>
+
+                  </form><!-- End General Form Elements -->
+
                 </div>
                 <div class="tab-pane fade" id="bordered-justified-profile" role="tabpanel" aria-labelledby="profile-tab">
-                <h5 class="card-title">Modificar cita médica</h5>
-                <div class="form-floating mb-3">
-                      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option selected>Selecciona una opción</option>
-                        <option value="1">16/01/2023 - 9:00</option>
-                        <option value="2">18/01/2023 - 12:00</option>
-                        <option value="3">27/01/2023 - 20:00</option>
-                      </select>
-                      <label for="floatingSelect">Cita a modificar</label>
-                    </div>
+                  <h5 class="card-title">Modificar cita médica</h5>
+                  <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                      <option selected>Selecciona una opción</option>
+                      <option value="1">16/01/2023 - 9:00</option>
+                      <option value="2">18/01/2023 - 12:00</option>
+                      <option value="3">27/01/2023 - 20:00</option>
+                    </select>
+                    <label for="floatingSelect">Cita a modificar</label>
+                  </div>
                   <!-- General Form Elements -->
-                  <form> 
+                  <form>
                     <div class="row mb-3">
                       <label for="inputDate" class="col-sm-2 col-form-label">Fecha:</label>
                       <div class="col-sm-10">
@@ -139,7 +153,7 @@
                         <input type="time" class="form-control">
                       </div>
                     </div>
-                    
+
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label">Doctor:</label>
                       <div class="col-sm-10">
@@ -153,43 +167,43 @@
                     </div>
 
                     <div class="row mb-6">
-                      <div  align="right">
-                        <button type="submit" class="btn btn-primary" >Modificar</button>
+                      <div align="right">
+                        <button type="submit" class="btn btn-primary">Modificar</button>
                       </div>
                     </div>
 
                   </form><!-- End General Form Elements -->
                 </div>
                 <div class="tab-pane fade" id="bordered-justified-contact" role="tabpanel" aria-labelledby="contact-tab">
-                <h5 class="card-title">Cancelar cita</h5>
+                  <h5 class="card-title">Cancelar cita</h5>
 
                   <!-- List group With Checkboxes and radios -->
                   <div class="col-sm-10">
                     <ul class="list-group">
                       <li class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        16/01/2023  -  9:00
+                        16/01/2023 - 9:00
                       </li>
                       <li class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        16/01/2023  -  17:00
+                        16/01/2023 - 17:00
                       </li>
                       <li class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        18/01/2023  -  12:00
+                        18/01/2023 - 12:00
                       </li>
                       <li class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        22/01/2023  -  7:00
+                        22/01/2023 - 7:00
                       </li>
                       <li class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        27/01/2023  -  20:00
+                        27/01/2023 - 20:00
                       </li>
                     </ul>
-                    </div>
+                  </div>
                   <div class="row mb-6">
-                    <div  align="right">
+                    <div align="right">
                       <button type="submit" class="btn btn-primary">Cancelar</button>
                     </div>
                   </div>
