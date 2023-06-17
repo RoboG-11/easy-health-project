@@ -1,17 +1,29 @@
 <?php
-include("../Services/FabricaCitaMedica.php");
-include("../Services/FabricaRecetaMedica.php");
-include("../Services/RecetaMedica.php");
-include("../Services//CitaMedica.php");
+include("../Services/Fabrica/FabricaCitaMedica.php");
+include("../Services/Fabrica/FabricaRecetaMedica.php");
+include("../Services/Fabrica/RecetaMedica.php");
+include("../Services/Fabrica/CitaMedica.php");
+class Gestor_Citas{
+  public $fabritaCitaMedica;
+  public function crearFabrica($doctor,$paciente,$horario,$establecimiento,$fecha){
+    $this->fabritaCitaMedica = new FabricaCitaMedica();
+    $this->fabritaCitaMedica->creaCitaMedica($doctor,$paciente,$horario,$establecimiento);
+    echo "Fecha: $fecha<br>";
+    echo "Horario: $horario<br>";
+    echo "Doctor seleccionado: $doctor<br>";
+    echo "Establecimiento seleccionado: $establecimiento";
+    echo "Paciente seleccionado: $paciente";
+  }
+  
+}
 
-$fabritaCitaMedica = new FabricaCitaMedica();
-$fabritaCitaMedica->creaCitaMedica($doctor,$paciente,$horario,$establecimiento);
-$citaMedica=$fabritaCitaMedica->getObjeto();
-$citaMedica->visualizaCitaMedica();
+// $fabritaCitaMedica->creaCitaMedica($doctor,$paciente,$horario,$establecimiento);
+// $citaMedica=$fabritaCitaMedica->getObjeto();
+// $citaMedica->visualizaCitaMedica();
 
-$fabritaRecetaMedica = new FabricaRecetaMedica();
-$fabritaRecetaMedica->creaRecetaMedica($citaMedica,"Cancer","Cancer muy fuerte");
-$recetaMedica=$fabritaRecetaMedica->getObjeto();
-$medicamento = new Medicamento("Aspirina","Mañana","Quita dolor de cabeza");
-$recetaMedica->añadirMedicamento($medicamento);
-$recetaMedica->visualizaRecetaMedica();
+// $fabritaRecetaMedica = new FabricaRecetaMedica();
+// $fabritaRecetaMedica->creaRecetaMedica($citaMedica,"Cancer","Cancer muy fuerte");
+// $recetaMedica=$fabritaRecetaMedica->getObjeto();
+// $medicamento = new Medicamento("Aspirina","Mañana","Quita dolor de cabeza");
+// $recetaMedica->añadirMedicamento($medicamento);
+// $recetaMedica->visualizaRecetaMedica();
