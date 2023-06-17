@@ -1,6 +1,5 @@
 <?php
 
-//include_once 'IUsuario.php';
 include_once 'conectorBD.php';
 
 class ProxyInicioSesion
@@ -23,13 +22,32 @@ class ProxyInicioSesion
 
     public function getNombre()
     {
-        $userInfo = $this->conector->getUserInfo($this->email, $this->password);
-        return $userInfo['nombre'];
+        return $this->conector->getUserName($this->email, $this->password);
+    }
+
+    public function getApellido()
+    {
+        return $this->conector->getUserLastName($this->email, $this->password);
+    }
+
+    public function getCorreo()
+    {
+        return $this->conector->getEmail($this->email, $this->password);
+    }
+
+    public function getTelefono()
+    {
+        return $this->conector->getPhone($this->email, $this->password);
+    }
+
+    public function getDirecion()
+    {
+        return $this->conector->getAddress($this->email, $this->password);
     }
 
     public function getUsername()
     {
-        $userInfo = $this->conector->getUserInfo($this->email, $this->password);
-        return $userInfo['email'];
+        $userInfo = $this->conector->getUserInfo($this->email);
+        return $userInfo['correo'];
     }
 }

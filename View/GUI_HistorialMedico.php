@@ -1,3 +1,12 @@
+<?php
+session_start();
+$nombreUsuario = isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : '';
+$apellidoUsuario = isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+$correoUsuario = isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : '';
+$telefonoUsuario = isset($_SESSION['telefonoUsuario']) ? $_SESSION['telefonoUsuario'] : '';
+$direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionUsuario'] : '';
+?>
+
 <!doctype html>
 <html>
 
@@ -51,7 +60,13 @@
 							<div class="flex flex-col w-1/2 space-y-2 pr-2 pr-3">
 								<div class="item-name flex justify-between w-full ">
 									<p class="font-bold text-easyLetter">Nombre del paciente:</p>
-									<p>Antonio Garcia</p>
+									<p>
+										<?php
+										echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : ' ';
+										echo " ";
+										echo isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+										?>
+									</p>
 								</div>
 								<div class="item-name flex justify-between space-x-3 w-full">
 									<p class="font-bold text-easyLetter">Fecha de nacimiento: </p>
