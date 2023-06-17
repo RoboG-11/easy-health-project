@@ -20,7 +20,6 @@ class GestorCuentas
       echo $proxyInicioSesion->getDirecion();
       echo $proxyInicioSesion->getTelefono();*/
 
-
       session_start();
       include_once '../Model/Gestor_Cuentas.php';
       $nombreUsuario = $proxyInicioSesion->getNombre();
