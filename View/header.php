@@ -11,6 +11,7 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="active " href="GUI_Principal.php">Inicio</a></li>
+        <li><a href="GUI_Citas.php">Citas</a></li>
         <li><a href="GUI_Doctores.php">Doctores</a></li>
         <li><a href="GUI_Establecimiento.php">Establecimientos</a></li>
         <li class="dropdown"><a href="#"><span>Especialidades</span> <i class="bi bi-chevron-down"></i></a>
@@ -28,13 +29,16 @@
             <li><a href="./GUI_Farmacia.php">Farmacia</a></li>
           </ul>
         </li>
-        <li><a href="GUI_IniciarSesion.php">Iniciar Sesión</a></li>
-        <li><a href="GUI_Perfil.php">
-            <?php
-            session_start();
-            echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : '';
-            ?>
-          </a></li>
+
+        <?php
+        session_start();
+        if (isset($_SESSION['nombreUsuario'])) {
+          echo '<li><a href="GUI_Perfil.php">' . $_SESSION['nombreUsuario'] . '</a></li>';
+        } else {
+          echo '<li><a href="gui_iniciarsesion.php">Iniciar sesión</a></li>';
+        }
+        ?>
+
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
