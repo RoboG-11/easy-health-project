@@ -1,8 +1,17 @@
+<?php
+session_start();
+$nombreUsuario = isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : '';
+$apellidoUsuario = isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+$correoUsuario = isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : '';
+$telefonoUsuario = isset($_SESSION['telefonoUsuario']) ? $_SESSION['telefonoUsuario'] : '';
+$direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionUsuario'] : '';
+?>
+
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="GUI_MenuPaciente.php" class="logo d-flex align-items-center">
+      <a href="GUI_Principal.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Easy Health</span>
       </a>
@@ -29,7 +38,14 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">
+              <?php
+
+              echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : ' ';
+              echo " ";
+              echo isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+              ?>
+            </span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -42,7 +58,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="GUI_Principal.php ">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Cerrar sesión</span>
+                <span>Cerrar sesiónaaaaaaaaa</span>
               </a>
             </li>
 
@@ -95,12 +111,12 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="GUI_Pagos.php">
-          
+
           <i class="bi bi-cash-coin"></i>
           <span>Pagos</span>
         </a>
       </li>
-      
+
       <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#">
           <i class="bi bi-prescription2"></i>

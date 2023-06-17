@@ -1,3 +1,12 @@
+<?php
+session_start();
+$nombreUsuario = isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : '';
+$apellidoUsuario = isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+$correoUsuario = isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : '';
+$telefonoUsuario = isset($_SESSION['telefonoUsuario']) ? $_SESSION['telefonoUsuario'] : '';
+$direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionUsuario'] : '';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +72,14 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2>Kevin Anderson</h2>
+              <h2>
+                <?php
+                echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : ' ';
+                echo " ";
+                echo isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+                ?>
+              </h2>
+
             </div>
           </div>
 
@@ -84,31 +100,49 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Modificar</button>
                 </li>
 
-                </ul>
+              </ul>
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  
+
                   <h5 class="card-title">Información del Perfil</h5>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Nombre</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    <div class="col-lg-9 col-md-8">
+                      <?php
+                      echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : ' ';
+                      echo " ";
+                      echo isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+                      ?></div>
+                    </h2>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Dirección</div>
-                    <div class="col-lg-9 col-md-8">Vasco de Quiroga 4871, Tinajas, Cuajimalpa de Morelos, 05348 Ciudad de México, CDMX</div>
+                    <div class="col-lg-9 col-md-8">
+                      <?php
+                      echo isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionUsuario'] : '';
+                      ?>
+                    </div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Telefono</div>
-                    <div class="col-lg-9 col-md-8">1234567890</div>
+                    <div class="col-lg-9 col-md-8">
+                      <?php
+                      echo isset($_SESSION['telefonoUsuario']) ? $_SESSION['telefonoUsuario'] : '';
+                      ?>
+                    </div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">kary@gmail.com</div>
+                    <div class="col-lg-9 col-md-8">
+                      <?php
+                      echo isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : '';
+                      ?>
+                    </div>
                   </div>
 
                 </div>
@@ -134,7 +168,7 @@
                         <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
                       </div>
                     </div>
-                    
+
                     <div class="row mb-3">
                       <label for="Address" class="col-md-4 col-lg-3 col-form-label">Dirección</label>
                       <div class="col-md-8 col-lg-9">
@@ -161,7 +195,7 @@
                     </div>
                   </form><!-- End Profile Edit Form -->
 
-                </div>  
+                </div>
               </div><!-- End Bordered Tabs -->
             </div>
           </div>
