@@ -11,6 +11,7 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="active " href="GUI_Principal.php">Inicio</a></li>
+        <li><a href="GUI_Citas.php">Citas</a></li>
         <li><a href="GUI_Doctores.php">Doctores</a></li>
         <li><a href="GUI_Establecimiento.php">Establecimientos</a></li>
         <li class="dropdown"><a href="#"><span>Especialidades</span> <i class="bi bi-chevron-down"></i></a>

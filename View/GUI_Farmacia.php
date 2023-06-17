@@ -49,7 +49,7 @@
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
           <h2>Farmacia</h2>
-          <ol>
+          <!-- <ol>
             <li>
               <a href="#">Medicamentos</a>
             </li>
@@ -65,7 +65,13 @@
             <li>
               <a href="#">Bebés</a>
             </li>
-          </ol>
+          </ol> -->
+          <div 
+            class="price-medicine"
+          >
+            <p>asdasd</p>
+            <!-- <img src="./assets/img/about.jpg" class="hero alt="hero"> -->
+          </div>
         </div>
 
       </div>

@@ -50,10 +50,10 @@
 
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>Seguros Médicos</h2>
-                    <ol>
+                    <!-- <ol>
                         <li><a href="index.html">Inicio</a></li>
                         <li>Seguros Médicos</li>
-                    </ol>
+                    </ol> -->
                 </div>
 
             </div>

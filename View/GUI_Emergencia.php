@@ -50,10 +50,10 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>Emergencia</h2>
-          <ol>
+          <!-- <ol>
             <li><a href="index.html">Inicio</a></li>
             <li>Emergencia</li>
-          </ol>
+          </ol> -->
         </div>
 
       </div>

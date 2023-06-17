@@ -2,6 +2,7 @@
 	class Producto{
 		protected $nombreProducto;
 		protected $precio;
+		protected $disponibilidad;
 
 		public function __construct($nombreProducto, $precio){
 			$this->nombreProducto=$nombreProducto;
