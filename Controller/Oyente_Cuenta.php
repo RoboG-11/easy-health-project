@@ -28,13 +28,10 @@ if (isset($_POST['func'])) {
       // Para doctor
 
       $xtra = $gestorCuentas->registroDoctor($correo, $contraseña);
-      //echo '<span style="background-color: yellow; color: red; font-weight: bold;">' . $xtra . '</span>';
+    }
 
-    } 
-    
-    if($ocupación == 3){
+    if ($ocupación == 3) {
       // Para paciente
-
       $xtra = $gestorCuentas->registroPaciente($correo, $contraseña);
     }
   }

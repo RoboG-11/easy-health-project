@@ -56,4 +56,11 @@ class ProxyInicioSesion
         $idCuenta = $this->conector->getIdCuenta($this->email, $this->password);
         return $idCuenta;
     }
+
+    public function getRolCuenta()
+    {
+        $idCuenta = $this->getIdCuenta();
+        $idRol = $this->conector->getIdRol($idCuenta);
+        return $idRol;
+    }
 }
