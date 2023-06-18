@@ -3,18 +3,39 @@ include("../Services/Fabrica/FabricaCitaMedica.php");
 include("../Services/Fabrica/FabricaRecetaMedica.php");
 include("../Services/Fabrica/RecetaMedica.php");
 include("../Services/Fabrica/CitaMedica.php");
-class Gestor_Citas{
+
+include("../Services/Proxys/ProxyInfoCitaMedica.php");
+class Gestor_Citas
+{
   public $fabritaCitaMedica;
-  public function crearFabrica($doctor,$paciente,$horario,$establecimiento,$fecha){
+  public function crearFabrica($doctor, $paciente, $horario, $establecimiento, $fecha)
+  {
     $this->fabritaCitaMedica = new FabricaCitaMedica();
-    $this->fabritaCitaMedica->creaCitaMedica($doctor,$paciente,$horario,$establecimiento);
+    $this->fabritaCitaMedica->creaCitaMedica($doctor, $paciente, $horario, $establecimiento);
     echo "Fecha: $fecha<br>";
     echo "Horario: $horario<br>";
     echo "Doctor seleccionado: $doctor<br>";
     echo "Establecimiento seleccionado: $establecimiento";
     echo "Paciente seleccionado: $paciente";
   }
-  
+
+  public function mostrarEstablecimientos()
+  {
+    $proxy = new ProxyCitaMedica();
+    $places = $proxy->getAllPlaces();
+
+    // Mostrar los nombres de los establecimientos en el formulario
+    foreach ($places as $nombre) {
+      echo '<option value="' . $nombre . '">' . $nombre . '</option>';
+    }
+  }
+
+  public function mostrarDoctores($nombre)
+  {
+    $proxy = new ProxyCitaMedica();
+    $proxy->getDoctors($nombre);
+  }
+
 }
 
 // $fabritaCitaMedica->creaCitaMedica($doctor,$paciente,$horario,$establecimiento);
