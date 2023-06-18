@@ -30,30 +30,6 @@ class Gestor_Citas
     }
   }
 
-  /*public function mostrarDoctores($establecimiento)
-  {
-    $proxy = new ProxyCitaMedica();
-    $idEstablecimiento = $this->obtenerIdEstablecimientPorNombre($establecimiento);
-    $doctores = $proxy->getDoctoresByEstablecimiento($idEstablecimiento);
-
-    foreach ($doctores as $doctor) {
-      //echo '<option value="' . $doctor . '">' . $doctor . '</option>';
-      print_r($proxy->getNombresDotores($doctor));
-    }
-  }*/
-
-  /*public function mostrarDoctores($establecimiento)
-  {
-    $proxy = new ProxyCitaMedica();
-    $idEstablecimiento = $this->obtenerIdEstablecimientPorNombre($establecimiento);
-    $doctores = $proxy->getDoctoresByEstablecimiento($idEstablecimiento);
-
-    foreach ($doctores as $doctor) {
-      $nombresDoctores = $proxy->getNombresDoctores($doctor);
-      print_r($nombresDoctores);
-    }
-  }*/
-
   public function mostrarDoctores($establecimiento)
   {
     $proxy = new ProxyCitaMedica();

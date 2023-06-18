@@ -1,5 +1,5 @@
 <?php
-include_once('C:\xampp\htdocs\PHP\Extra\easy-health-project\Model\Cuenta.php');
+include_once('../Model/Cuenta.php');
 
 class Paciente extends Cuenta {
     public $fecha_nacimiento;

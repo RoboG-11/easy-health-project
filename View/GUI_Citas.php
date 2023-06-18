@@ -80,7 +80,7 @@
                   <h5 class="card-title">Agendar cita médica</h5>
 
                   <!-- General Form Elements -->
-                  <form action="../Controller/Oyente_Citas.php" method="POST">
+                  <form action="../Controller/Oyente_AgendarCita.php" method="POST">
                     <div class="row mb-3">
                       <label for="inputDate" class="col-sm-2 col-form-label">Fecha:</label>
                       <div class="col-sm-10">
