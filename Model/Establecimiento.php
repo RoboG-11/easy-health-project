@@ -1,7 +1,7 @@
 <?php
 class Establecimiento {
     public $nombre;
-    public Direccion $direccion ;
+    public $direccion ;
     public Especialidad $especialidad;
 
 

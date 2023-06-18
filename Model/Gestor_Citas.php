@@ -1,13 +1,25 @@
 <?php
+
+use JetBrains\PhpStorm\Pure;
+
 include("../Services/Fabrica/FabricaCitaMedica.php");
 include("../Services/Fabrica/FabricaRecetaMedica.php");
 include("../Services/Fabrica/RecetaMedica.php");
 include("../Services/Fabrica/CitaMedica.php");
 
 include("../Services/Proxys/ProxyInfoCitaMedica.php");
+include("Cuenta.php");
+include("Doctor.php");
+include("Establecimiento.php");
+include("Especialidad.php");
 class Gestor_Citas
 {
   public $fabritaCitaMedica;
+  public $doctor;
+  public $paciente;
+  public $horario;
+  public $establecimiento;
+
   public function crearFabrica($doctor, $paciente, $horario, $establecimiento, $fecha)
   {
     $this->fabritaCitaMedica = new FabricaCitaMedica();
@@ -50,15 +62,43 @@ class Gestor_Citas
 
     return  $idEstablecimiento;
   }
+
+  public function getDoctor($nombre){
+    $proxy = new ProxyCitaMedica();
+    $result = $proxy->getDoctor($nombre);
+    $this->doctor = new Doctor(
+      $result['nombre'],
+      $result['apellido'],
+      $result['telefono'],
+      $result['correo'],
+      $result['password'],
+      $result['id_direccion_c'],
+      $result['id_especialidad'],
+      $result['c_Profesional'],
+      $result['formacion']
+    );
+    echo $this->doctor->nombre;
+    echo $this->doctor->apellido;
+    echo $this->doctor->telefono;
+    echo $this->doctor->correo;
+    echo $this->doctor->contraseña;
+    echo $this->doctor->direccion;
+    echo $this->doctor->especialidad;
+    echo $this->doctor->cedulaProfesional;
+    echo $this->doctor->formacion ."\n\n\n\n";
+
+  }
+
+  public function getEstablecimiento($nombre){
+    $proxy = new ProxyCitaMedica();
+    $result = $proxy->getEstablecimiento($nombre);
+    $this->establecimiento = new Establecimiento(
+      $result['nombre'],
+      $result['Id_Direccion_E'],
+      new Especialidad($result['Especialidad'])
+    );
+    echo $this->establecimiento->nombre;
+    echo $this->establecimiento->direccion;
+    echo $this->establecimiento->especialidad->especialidad;
+  }
 }
-
-// $fabritaCitaMedica->creaCitaMedica($doctor,$paciente,$horario,$establecimiento);
-// $citaMedica=$fabritaCitaMedica->getObjeto();
-// $citaMedica->visualizaCitaMedica();
-
-// $fabritaRecetaMedica = new FabricaRecetaMedica();
-// $fabritaRecetaMedica->creaRecetaMedica($citaMedica,"Cancer","Cancer muy fuerte");
-// $recetaMedica=$fabritaRecetaMedica->getObjeto();
-// $medicamento = new Medicamento("Aspirina","Mañana","Quita dolor de cabeza");
-// $recetaMedica->añadirMedicamento($medicamento);
-// $recetaMedica->visualizaRecetaMedica();

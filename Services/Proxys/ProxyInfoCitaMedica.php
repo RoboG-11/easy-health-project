@@ -33,4 +33,11 @@ class ProxyCitaMedica
   public function getNombresDoctores($id){
     return $this->conector->showNameDoctor($id);
   }
+
+  public function getDoctor($nombre){
+    return $this->conector->getCuentaDoctorByNombre($nombre);
+  }
+  public function getEstablecimiento($nombre){
+    return $this->conector->getEstablecimientoByName($nombre);
+  }
 }
