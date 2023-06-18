@@ -29,4 +29,8 @@ class ProxyCitaMedica
   {
     return $this->conector->getIdPlace($nombre);
   }
+
+  public function getNombresDoctores($id){
+    return $this->conector->showNameDoctor($id);
+  }
 }

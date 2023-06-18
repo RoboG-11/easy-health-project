@@ -30,19 +30,43 @@ class Gestor_Citas
     }
   }
 
-  public function mostrarDoctores($establecimiento)
+  /*public function mostrarDoctores($establecimiento)
   {
     $proxy = new ProxyCitaMedica();
     $idEstablecimiento = $this->obtenerIdEstablecimientPorNombre($establecimiento);
     $doctores = $proxy->getDoctoresByEstablecimiento($idEstablecimiento);
 
     foreach ($doctores as $doctor) {
-      echo '<option value="' . $doctor . '">' . $doctor . '</option>';
+      //echo '<option value="' . $doctor . '">' . $doctor . '</option>';
+      print_r($proxy->getNombresDotores($doctor));
     }
+  }*/
 
+  /*public function mostrarDoctores($establecimiento)
+  {
+    $proxy = new ProxyCitaMedica();
+    $idEstablecimiento = $this->obtenerIdEstablecimientPorNombre($establecimiento);
+    $doctores = $proxy->getDoctoresByEstablecimiento($idEstablecimiento);
+
+    foreach ($doctores as $doctor) {
+      $nombresDoctores = $proxy->getNombresDoctores($doctor);
+      print_r($nombresDoctores);
+    }
+  }*/
+
+  public function mostrarDoctores($establecimiento)
+  {
+    $proxy = new ProxyCitaMedica();
+    $idEstablecimiento = $this->obtenerIdEstablecimientoPorNombre($establecimiento);
+    $doctores = $proxy->getDoctoresByEstablecimiento($idEstablecimiento);
+
+    foreach ($doctores as $doctor) {
+      $nombresDoctores = $proxy->getNombresDoctores($doctor);
+      echo '<option value="' . $nombresDoctores . '">' . $nombresDoctores . '</option>';
+    }
   }
 
-  public function obtenerIdEstablecimientPorNombre($nombre)
+  public function obtenerIdEstablecimientoPorNombre($nombre)
   {
 
     $proxy = new ProxyCitaMedica();
