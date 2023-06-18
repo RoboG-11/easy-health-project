@@ -8,7 +8,6 @@ if (isset($_POST['func'])) {
     $contraseña = $_POST['contraseña']; // Obtener el valor del campo de contraseña del formulario
     $gestorCuentas = new GestorCuentas();
     $gestorCuentas->IniciarSesion($correo, $contraseña);
-
   } elseif ($func == 'Registro') {
     include '../Model/Gestor_Cuentas.php';
     // Obtener los valores de los campos de registro
@@ -21,6 +20,22 @@ if (isset($_POST['func'])) {
     $ocupación = $_POST['rol'];
 
     $gestorCuentas = new GestorCuentas();
+    // Se registra en la BD tabla de cuentas
     $gestorCuentas->Registro($nombre, $apellido, $telefono, $correo, $contraseña, $direccion, $ocupación);
+
+    // Se registra en la BD tabla doctores o pacientes
+    if ($ocupación == 2) {
+      // Para doctor
+
+      $xtra = $gestorCuentas->registroDoctor($correo, $contraseña);
+      //echo '<span style="background-color: yellow; color: red; font-weight: bold;">' . $xtra . '</span>';
+
+    } 
+    
+    if($ocupación == 3){
+      // Para paciente
+
+      $xtra = $gestorCuentas->registroPaciente($correo, $contraseña);
+    }
   }
 }
