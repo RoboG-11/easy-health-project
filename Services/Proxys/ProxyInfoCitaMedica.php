@@ -15,10 +15,9 @@ class ProxyCitaMedica
     //$this->establecimientos = $establecimientos;
   }
 
-  public function getDoctors($nombre)
+  public function getDoctoresByEstablecimiento($establecimiento)
   {
-    $idPlace =  $this->conector->getIdPlace($nombre);
-    echo $idPlace;
+    return $this->conector->showDoctoresByEstablecimiento($establecimiento);
   }
 
   public function getAllPlaces()
@@ -26,4 +25,8 @@ class ProxyCitaMedica
     return $this->conector->showAllPlaces();
   }
 
+  public function getIdEstablecimientoByName($nombre)
+  {
+    return $this->conector->getIdPlace($nombre);
+  }
 }
