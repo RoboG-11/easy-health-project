@@ -44,9 +44,9 @@
 
         <div class="row">
           <!-- Nefrología -->
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch pb-5">
             <div class="card" data-aos="fade-up">
-              <img src="assets/img/nefrologia.jpg" class="card-img-top" alt="Nefrología">
+              <img src="assets/img/especialidad1.jpg" class="card-img-top" alt="Nefrología">
               <div class="card-body">
                 <h5 class="card-title"><a href="especialidad.php?esp=nefrologia">Nefrología</a></h5>
                 <p class="card-text">Consulta los doctores disponibles, su especialidad y horarios de atención. ¡Agenda tu cita desde casa!</p>
@@ -57,7 +57,7 @@
           <!-- Cardiología -->
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card" data-aos="fade-up" data-aos-delay="100">
-              <img src="assets/img/cardiologia.jpg" class="card-img-top" alt="Cardiología">
+              <img src="assets/img/especialidad2.png" class="card-img-top" alt="Cardiología">
               <div class="card-body">
                 <h5 class="card-title"><a href="especialidad.php?esp=cardiologia">Cardiología</a></h5>
                 <p class="card-text">Consulta los doctores disponibles, su especialidad y horarios de atención. ¡Agenda tu cita desde casa!</p>
@@ -68,7 +68,7 @@
           <!-- Pediatría -->
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card" data-aos="fade-up" data-aos-delay="200">
-              <img src="assets/img/pediatria.jpg" class="card-img-top" alt="Pediatría">
+              <img src="assets/img/especialidad3.webp" class="card-img-top" alt="Pediatría">
               <div class="card-body">
                 <h5 class="card-title"><a href="especialidad.php?esp=pediatria">Pediatría</a></h5>
                 <p class="card-text">Consulta los doctores disponibles, su especialidad y horarios de atención. ¡Agenda tu cita desde casa!</p>
@@ -79,7 +79,7 @@
           <!-- Dermatología -->
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card" data-aos="fade-up" data-aos-delay="300">
-              <img src="assets/img/dermatologia.jpg" class="card-img-top" alt="Dermatología">
+              <img src="assets/img/especialidad4.webp" class="card-img-top" alt="Dermatología">
               <div class="card-body">
                 <h5 class="card-title"><a href="especialidad.php?esp=dermatologia">Dermatología</a></h5>
                 <p class="card-text">Consulta los doctores disponibles, su especialidad y horarios de atención. ¡Agenda tu cita desde casa!</p>
@@ -90,7 +90,7 @@
           <!-- Otras especialidades -->
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card" data-aos="fade-up" data-aos-delay="400">
-              <img src="assets/img/especialidad1.jpg" class="card-img-top" alt="Especialidad 1">
+              <img src="assets/img/especialidad5.jpg" class="card-img-top" alt="Especialidad 1">
               <div class="card-body">
                 <h5 class="card-title"><a href="especialidad.php?esp=especialidad1">Especialidad 1</a></h5>
                 <p class="card-text">Consulta los doctores disponibles, su especialidad y horarios de atención. ¡Agenda tu cita desde casa!</p>
@@ -100,7 +100,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="card" data-aos="fade-up" data-aos-delay="500">
-              <img src="assets/img/especialidad2.jpg" class="card-img-top" alt="Especialidad 2">
+              <img src="assets/img/especialidad6.jpg" class="card-img-top" alt="Especialidad 2">
               <div class="card-body">
                 <h5 class="card-title"><a href="especialidad.php?esp=especialidad2">Especialidad 2</a></h5>
                 <p class="card-text">Consulta los doctores disponibles, su especialidad y horarios de atención. ¡Agenda tu cita desde casa!</p>
@@ -126,3 +126,13 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
