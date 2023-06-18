@@ -50,7 +50,14 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
-            <h6>Kevin Anderson</h6>
+            <h6>
+              <?php
+
+              echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : ' ';
+              echo " ";
+              echo isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+              ?>
+            </h6>
           </li>
           <li>
             <hr class="dropdown-divider">

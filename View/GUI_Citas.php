@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -96,12 +96,20 @@
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label">Establecimiento:</label>
                       <div class="col-sm-10">
-                        <select class="form-select" multiple aria-label="multiple select example" name="establecimiento">
+                        <select class="form-select" multiple aria-label="multiple select example" name="establecimiento" id="establecimientos-select">
                           <option selected>Elige un establecimento</option>
-                          <option value="El ABC">El ABC</option>
+                          <!--<option value="El ABC">El ABC</option>
                           <option value="El Angeles">El Angeles</option>
                           <option value="El Star medica">El Star medica</option>
-                          <option value="El IMSS">El IMSS</option>
+                          <option value="El IMSS">El IMSS</option>-->
+
+                          <?php
+                          include '../Model/Gestor_Citas.php';
+
+                          $gestorCitas = new Gestor_Citas();
+                          $gestorCitas->mostrarEstablecimientos();
+                          ?>
+
                         </select>
                       </div>
                     </div>
@@ -109,15 +117,23 @@
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label">Doctor:</label>
                       <div class="col-sm-10">
-                        <select class="form-select" multiple aria-label="multiple select example" name="doctor">
+                        <select class="form-select" multiple aria-label="multiple select example" name="doctores" id="doctores-select">
                           <option selected>Elige un doctor</option>
-                          <option value="Walter White">Walter White</option>
-                          <option value="Sarah Jhonson">Sarah Jhonson</option>
-                          <option value="William Anderson">William Anderson</option>
+
+
+                          <option value="El ABC">Juan</option>
+                          <option value="El Angeles">Maximiliano</option>
+                          <option value="El Star medica">Diego</option>
+                          <option value="El IMSS">Ansu</option>
+
+
+
+
+
+
                         </select>
                       </div>
                     </div>
-
 
                     <div class="row mb-6">
                       <div align="right">
@@ -232,6 +248,7 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

@@ -152,8 +152,6 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
                   <!-- Profile Edit Form -->
                   <?php
                   include 'formPaciente.php';
-                  ?>
-                  <?php
                   include 'formDoctor.php';
                   ?>
 

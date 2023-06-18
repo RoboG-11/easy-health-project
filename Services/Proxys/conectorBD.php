@@ -207,11 +207,31 @@ class ConectorBD
     }
   }
 
-  public function getAllDoctors()
+  public function getIdPlace($nombre)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT Id_Establecimiento FROM establecimientos WHERE Nombre = :nombre");
+      $query->execute(['nombre' => $nombre]);
+
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+
+      if ($result) {
+        return $result['Id_Establecimiento'];
+      } else {
+        return false; // El establecimiento no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
+  public function getDoctors()
   {
     $connection = $this->connect();
     if ($connection !== NULL) {
-
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }
@@ -221,10 +241,35 @@ class ConectorBD
   {
     $connection = $this->connect();
     if ($connection !== NULL) {
-      $query = $connection->prepare("SELECT Id_Establecimiento, Id_Especialidad, Tipo, Nombre, Id_Direccion_E FROM establecimientos WHERE Id_Establecimiento != 0");
+      $query = $connection->prepare("SELECT * FROM establecimientos WHERE Id_Establecimento != 0");
       $query->execute();
       $results = $query->fetchAll(PDO::FETCH_ASSOC);
-      return $results;
+      //return $results;
+      print_r($results);
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function showAllPlaces()
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT * FROM establecimientos WHERE Id_Establecimento != 0");
+      $query->execute();
+      $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+      $nombresEstablecimientos = array();
+      foreach ($results as $row) {
+        $nombresEstablecimientos[] = $row['Nombre'];
+      }
+
+      // Imprimir los nombres de los establecimientos
+      //foreach ($nombresEstablecimientos as $nombre) {
+      //echo $nombre . "<br>";
+      //}
+
+      return $nombresEstablecimientos;
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }
