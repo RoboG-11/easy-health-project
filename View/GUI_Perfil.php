@@ -3,6 +3,7 @@ session_start();
 $nombreUsuario = isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : '';
 $apellidoUsuario = isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
 $correoUsuario = isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : '';
+$contraseña = isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : '';
 $telefonoUsuario = isset($_SESSION['telefonoUsuario']) ? $_SESSION['telefonoUsuario'] : '';
 $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionUsuario'] : '';
 ?>

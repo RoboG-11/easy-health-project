@@ -158,6 +158,25 @@ class ConectorBD
     }
   }
 
+  public function getIdRol($idCuenta)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT Id_Rol FROM cuentas WHERE Id_Cuenta = :idCuenta");
+      $query->execute(['idCuenta' => $idCuenta]);
+
+      if ($query->rowCount()) {
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['Id_Rol'];
+      } else {
+        return false; // La cuenta no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
   public function registrarIdDoctor($email, $password, $idCuenta, $idEstablecimiento)
   {
     $connection = $this->connect();
