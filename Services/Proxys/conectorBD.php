@@ -250,7 +250,25 @@ class ConectorBD
     }
   }
 
+  public function getRolCuenta($nombre, $telefono)
+  {
+    $connection = $this->connect();
 
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT Id_Rol FROM cuentas WHERE Nombre = :nombre AND Telefono = :telefono");
+      $query->execute(['nombre' => $nombre, 'telefono' => $telefono]);
+
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+
+      if ($result) {
+        return $result['Id_Rol'];
+      } else {
+        return false; // La cuenta no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
   public function getDoctors()
   {

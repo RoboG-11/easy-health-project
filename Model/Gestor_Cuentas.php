@@ -4,6 +4,7 @@ include_once '../Model/Paciente.php';
 include_once '../Services/Proxys/ProxyInicioSesion.php';
 include_once '../Services/Proxys/ProxyRegistro.php';
 include_once '../Services/Proxys/ProxyIdCuenta.php';
+include_once '../Services/Proxys/ProxyRol.php';
 
 class GestorCuentas
 {
@@ -94,11 +95,10 @@ class GestorCuentas
     session_destroy();
   }
 
-  public function rolCuenta($correo, $contraseña)
+  public function rolCuenta($nombre, $telefono)
   {
-    $proxyInicioSesion = new ProxyInicioSesion($correo, $contraseña);
-
-    $rolCuenta = $proxyInicioSesion->getRolCuenta();
+    $proxyRol = new ProxyRol($nombre, $telefono);
+    $rolCuenta = $proxyRol->rolUsuario();
 
     return $rolCuenta;
   }
