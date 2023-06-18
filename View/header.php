@@ -14,14 +14,7 @@
         <li><a href="GUI_Citas.php">Citas</a></li>
         <li><a href="GUI_Doctores.php">Doctores</a></li>
         <li><a href="GUI_Establecimiento.php">Establecimientos</a></li>
-        <li class="dropdown"><a href="#"><span>Especialidades</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">Nefrología</a></li>
-            <li><a href="#">Cardiología</a></li>
-            <li><a href="#">Pediatría</a></li>
-            <li><a href="#">Dermatología</a></li>
-          </ul>
-        </li>
+        <li><a href="GUI_Especialidades.php">Especialidades</a></li>
         <li><a href="GUI_Emergencia.php">Emergencias</a></li>
         <li class="dropdown"><a href="#"><span>Extras</span> <i class="bi bi-chevron-down"></i></a>
           <ul>

@@ -437,4 +437,16 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+
+  //saul
+  public function getProductInfo($product){
+    $connection = $this->connect();
+
+    if($connection !== null){
+      $query = $connection->prepare('SELECT * FROM medicamentos WHERE nombre = :product');
+      $query->execute(['product' => $product]);
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 }
