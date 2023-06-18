@@ -10,10 +10,10 @@ class ConectorBD
 
   public function __construct()
   {
-    $this->host = 'localhost:3308';
+    $this->host = 'localhost:3306';
     $this->db = 'easyhealth';
     $this->user = 'root';
-    $this->password = "NegritO2001";
+    $this->password = "";
     $this->charset = 'utf8mb4';
   }
 
