@@ -209,16 +209,20 @@ class ConectorBD
 
   public function getIdPlace($nombre)
   {
+    if (is_array($nombre)) {
+      $nombre = implode(", ", $nombre);
+    }
+
     $connection = $this->connect();
 
     if ($connection !== null) {
-      $query = $connection->prepare("SELECT Id_Establecimiento FROM establecimientos WHERE Nombre = :nombre");
+      $query = $connection->prepare("SELECT Id_Establecimento FROM establecimientos WHERE Nombre = :nombre");
       $query->execute(['nombre' => $nombre]);
 
       $result = $query->fetch(PDO::FETCH_ASSOC);
 
       if ($result) {
-        return $result['Id_Establecimiento'];
+        return $result['Id_Establecimento'];
       } else {
         return false; // El establecimiento no existe
       }
@@ -226,6 +230,7 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+
 
 
   public function getDoctors()
@@ -264,16 +269,53 @@ class ConectorBD
         $nombresEstablecimientos[] = $row['Nombre'];
       }
 
-      // Imprimir los nombres de los establecimientos
-      //foreach ($nombresEstablecimientos as $nombre) {
-      //echo $nombre . "<br>";
-      //}
-
       return $nombresEstablecimientos;
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+
+  public function showDoctoresByEstablecimiento($establecimiento)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT Id_Doctor FROM doctores WHERE id_establecimiento = :establecimiento");
+      $query->bindParam(':establecimiento', $establecimiento);
+      $query->execute();
+      $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+      $idDoctores = array();
+      foreach ($results as $row) {
+        $idDoctores[] = $row['Id_Doctor'];
+      }
+
+      return $idDoctores;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function showNameDoctor($id)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT Nombre, Apellido FROM cuentas WHERE Id_Cuenta = :idCuenta");
+      $query->bindParam(':idCuenta', $id);
+      $query->execute();
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+
+      if ($result) {
+        $nombre = $result['Nombre'];
+        $apellido = $result['Apellido'];
+        return $nombre . ' ' . $apellido;
+      } else {
+        return false; // La cuenta no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
 
   public function getPhone($email, $password)
   {
@@ -295,6 +337,7 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+
 
   public function register($nombre, $apellido, $telefono, $correo, $password, $direccion, $rol)
   {
