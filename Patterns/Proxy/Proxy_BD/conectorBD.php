@@ -13,7 +13,7 @@ class ConectorBD
     $this->host = 'localhost:3308';
     $this->db = 'easyhealth';
     $this->user = 'root';
-    $this->password = "";
+    $this->password = "NegritO2001";
     $this->charset = 'utf8mb4';
   }
 
@@ -136,6 +136,78 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+
+  public function getIdCuenta($email, $password)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $md5pass = md5($password);
+
+      $query = $connection->prepare("SELECT Id_Cuenta FROM cuentas WHERE correo = :user AND password = :pass");
+      $query->execute(['user' => $email, 'pass' => $md5pass]);
+
+      if ($query->rowCount()) {
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['Id_Cuenta'];
+      } else {
+        return false; // El usuario no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function registrarIdDoctor($email, $password, $idCuenta, $idEstablecimiento)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $md5pass = md5($password);
+
+      $query = $connection->prepare("SELECT Id_Cuenta FROM cuentas WHERE correo = :user AND password = :pass");
+      $query->execute(['user' => $email, 'pass' => $md5pass]);
+
+      if ($query->rowCount()) {
+        // Insertar ID en la columna Id_Doctor de la tabla doctores
+        $insertQuery = $connection->prepare("INSERT INTO doctores (Id_Doctor, id_establecimiento) VALUES (:idCuenta, :idEstablecimiento)");
+        $insertQuery->execute(['idCuenta' => $idCuenta, 'idEstablecimiento' => $idEstablecimiento]);
+
+        return $idCuenta;
+      } else {
+        return false; // El usuario no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
+  public function registrarIdPaciente($email, $password, $idCuenta)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $md5pass = md5($password);
+
+      $query = $connection->prepare("SELECT Id_Cuenta FROM cuentas WHERE correo = :user AND password = :pass");
+      $query->execute(['user' => $email, 'pass' => $md5pass]);
+
+      if ($query->rowCount()) {
+        // Insertar ID en la columna id_cuenta de la tabla pacientes
+        $insertQuery = $connection->prepare("INSERT INTO pacientes (id_cuenta) VALUES (:idCuenta)");
+        $insertQuery->execute(['idCuenta' => $idCuenta]);
+
+        return $idCuenta;
+      } else {
+        return false; // El usuario no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
 
   public function getPhone($email, $password)
   {

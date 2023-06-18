@@ -3,6 +3,7 @@
 include_once '../Model/Paciente.php';
 include_once '../Patterns/Proxy/Proxy_BD/ProxyInicioSesion.php';
 include_once '../Patterns/Proxy/Proxy_BD/ProxyRegistro.php';
+include_once '../Patterns/Proxy/Proxy_BD/ProxyIdCuenta.php';
 
 class GestorCuentas
 {
@@ -45,13 +46,35 @@ class GestorCuentas
     $proxyRegistro = new ProxyRegistro($rol, $correo, $contraseña, $nombre, $apellido, $telefono, $direccion);
 
     if ($proxyRegistro->register()) {
-      header("location: ../View/GUI_IniciarSesion.php");
+      //header("location: ../View/GUI_IniciarSesion.php");
     } else {
       echo '<script type="text/javascript">alert("Correo o contraseña incorrectos, intente de nuevo.");
                         window.location.href="../View/GUI_Registro.php";</script>';
     }
 
     //if($proxyBD->userExists()) 
+  }
+
+  public function registroDoctor($correo, $contraseña)
+  {
+
+    $proxyGetId = new ProxyInicioSesion($correo, $contraseña);
+    $idCuenta = $proxyGetId->getIdCuenta();
+
+    $proxyRegistroID = new ProxyIdCuenta($idCuenta, $correo, $contraseña);
+    $proxyRegistroID->registroIDCuentaDoctor();
+
+  }
+
+  public function registroPaciente($correo, $contraseña){
+
+    $proxyGetId = new ProxyInicioSesion($correo, $contraseña);
+    $idCuenta = $proxyGetId->getIdCuenta();
+
+    $proxyRegistroID = new ProxyIdCuenta($idCuenta, $correo, $contraseña);
+    $proxyRegistroID->registroIDCuentaPaciente();
+
+    //echo $idCuenta;
   }
 
   /* Función para darle valor a la sesión actual */
