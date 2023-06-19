@@ -14,34 +14,137 @@ include("Establecimiento.php");
 include("Especialidad.php");
 include("Horario.php");
 include("Fecha.php");
+include("Paciente.php");
+
 class Gestor_Citas
 {
   public $fabritaCitaMedica;
-  public $doctor;
-  public $paciente;
-  public $horario;
-  public $establecimiento;
-  public $fecha;
+  public $doctorObjeto;
+  public $pacienteObjeto;
+  public $horarioObjeto;
+  public $establecimientoObjeto;
+  public $fechaObjeto;
   public $citaMedica;
 
-  public function crearFabrica($doctor, $paciente, $horario, $establecimiento, $fecha)
+  public function __construct()
   {
     $this->fabritaCitaMedica = new FabricaCitaMedica();
-    $this->fabritaCitaMedica->creaCitaMedica($doctor, $paciente, $horario, $establecimiento);
   }
 
-// Mostrar los nombres de los establecimientos en el formulario
+  public function wholePart($doctor, $paciente, $horario, $establecimiento, $fecha)
+  {
+    $this->fechaObjeto=$this->getFecha($fecha);
+    $this->horarioObjeto=$this->getHorario($horario);
+    $this->pacienteObjeto=$this->getPaciente($paciente);
+    $this->establecimientoObjeto=$this->getEstablecimiento($establecimiento);
+    $this->doctorObjeto= $this->getDoctor($doctor);
+
+  }
+
+  public function crearCita($doctor, $paciente, $horario, $establecimiento, $fecha){
+    $this->wholePart($doctor, $paciente, $horario, $establecimiento, $fecha);
+    $this->fabritaCitaMedica->creaCitaMedica($this->doctorObjeto, $this->pacienteObjeto, 
+                                            $this->horarioObjeto, $this->establecimientoObjeto,
+                                            $this->fechaObjeto);
+    $this->citaMedica=$this->fabritaCitaMedica->getObjeto();
+    $this->citaMedica->visualizaCitaMedica();
+    $this->setCitaMedica();
+  }
+
+
+  
+  //Obtiene el objeto fecha a partir de la fecha
+  public function getFecha($fecha)
+  {
+    return new Fecha($fecha);
+  }
+  //Obtiene el objeto horario a partir del horario
+  public function getHorario($horario)
+  {
+    return new Horario($horario);
+  }
+
+  //Obtiene el objeto establecimiento a partir de su nombre
+  public function getEstablecimiento($nombre)
+  {
+    $proxy = new ProxyCitaMedica();
+    $result = $proxy->getEstablecimiento($nombre);
+    return new Establecimiento(
+      $result['nombre'],
+      $result['Id_Direccion_E'],
+      new Especialidad($result['Especialidad']),
+      $result['id_Establecimento']
+    );
+  }
+  //Obtiene el objeto paciente a partir de su nombre
+  public function getPaciente($nombre)
+  {
+    $proxy = new ProxyCitaMedica();
+    $result = $proxy->getPaciente($nombre);
+    return new Paciente(
+      $result['id_cuenta'],
+      $result['nombre'],
+      $result['apellido'],
+      $result['telefono'],
+      $result['correo'],
+      $result['password'],
+      $result['id_direccion_c'],
+      $result['sexo'],
+      $result['edad'],
+      $result['peso'],
+      $result['nacionalidad'],
+      $result['fecha_nacimiento'],
+      $result['enfermedad_cronica'],
+      $result['alergias'],
+      $result['nss']
+    );
+  }
+
+  //Obtiene el objeto doctor a partir de su nombre
+  public function getDoctor($nombre)
+  {
+    $proxy = new ProxyCitaMedica();
+    $result = $proxy->getDoctor($nombre);
+    return new Doctor(
+      $result['id_doctor'],
+      $result['nombre'],
+      $result['apellido'],
+      $result['telefono'],
+      $result['correo'],
+      $result['password'],
+      $result['id_direccion_c'],
+      $result['id_especialidad'],
+      $result['c_Profesional'],
+      $result['formacion']
+    );
+    // echo $this->doctor->id;
+    // echo $this->doctor->nombre;
+    // echo $this->doctor->apellido;
+    // echo $this->doctor->telefono;
+    // echo $this->doctor->correo;
+    // echo $this->doctor->contraseña;
+    // echo $this->doctor->formacion;
+  }
+
+  public function setCitaMedica()
+  {
+    $proxy = new ProxyCitaMedica();
+    $proxy->setCitaMedica($this->citaMedica->getID(), $this->doctorObjeto->id, $this->pacienteObjeto->id, 
+                          $this->horarioObjeto->hora, $this->establecimientoObjeto->id, 
+                          $this->fechaObjeto->fecha);
+  }
+  // Mostrar los nombres de los establecimientos en el formulario
   public function mostrarEstablecimientos()
   {
     $proxy = new ProxyCitaMedica();
     $places = $proxy->getAllPlaces();
 
-    
+
     foreach ($places as $nombre) {
       echo '<option value="' . $nombre . '">' . $nombre . '</option>';
     }
   }
-// Mostrar los nombres de los doctores en el formulario
+  // Mostrar los nombres de los doctores en el formulario
   public function mostrarDoctores($establecimiento)
   {
     $proxy = new ProxyCitaMedica();
@@ -61,46 +164,5 @@ class Gestor_Citas
     $idEstablecimiento =  $proxy->getIdEstablecimientoByName($nombre);
 
     return  $idEstablecimiento;
-  }
-
-  public function getFecha($fecha){
-    $this->fecha=new Fecha($fecha);
-  }
-
-  public function getHorario($horario){
-    $this->horario=new Horario($horario);
-  }
-
-  public function getEstablecimiento($nombre){
-    $proxy = new ProxyCitaMedica();
-    $result = $proxy->getEstablecimiento($nombre);
-    $this->establecimiento = new Establecimiento(
-      $result['nombre'],
-      $result['Id_Direccion_E'],
-      new Especialidad($result['Especialidad']),
-      $result['id_Establecimento']
-    );
-  }
-
-  public function getDoctor($nombre){
-    $proxy = new ProxyCitaMedica();
-    $result = $proxy->getDoctor($nombre);
-    $this->doctor = new Doctor(
-      $result['id_doctor'],
-      $result['nombre'],
-      $result['apellido'],
-      $result['telefono'],
-      $result['correo'],
-      $result['password'],
-      $result['id_direccion_c'],
-      $result['id_especialidad'],
-      $result['c_Profesional'],
-      $result['formacion']
-    );
-  }
-
-  public function setCitaMedica($idCita, $paciente,){
-    $proxy = new ProxyCitaMedica();
-    $proxy->setCitaMedica($idCita, $this->doctor->id, $paciente, $this->horario->hora, $this->establecimiento->id, $this->fecha->fecha);
   }
 }

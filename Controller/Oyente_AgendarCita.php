@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   include '../Model/Gestor_Citas.php';
@@ -8,27 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $horario = $_POST['horario'];
   $establecimiento = $_POST['establecimiento'];
   $doctor = $_POST['doctores'];
+
+  $nombreUsuario = isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : '';
   $words = explode(" ", $doctor);
   $doctor = $words[0];
-
   $gestorCitas = new Gestor_Citas();
-  $gestorCitas->getDoctor($doctor);
-  $gestorCitas->getEstablecimiento($establecimiento);
-  
-  $gestorCitas->getFecha($fecha);
-  $gestorCitas->getHorario($horario);
-  //$gestorCitas->setCitaMedica(5,21,432,'15:30:00',312,'2023-05-21');
-  
-
-
-
-  //$gestorCitas->crearFabrica($doctor,$paciente,$horario,$establecimiento,$fecha);
-
-  // Realizar las operaciones o procesamiento necesario con los datos capturados
-
-  // Ejemplo: Imprimir los datos capturados
-  echo "Fecha: " . $fecha . "<br>";
-  echo "Horario: " . $horario . "<br>";
-  echo "Establecimiento: " . $establecimiento . "<br>";
-  echo "Doctor: " . $doctor . "<br>";
+  $gestorCitas->crearCita($doctor, $nombreUsuario, $horario, $establecimiento, $fecha);  
 }
