@@ -1,6 +1,6 @@
 <?php
-require_once('./Carrito_InfoPago.php');
-require_once('../../Services/Proxys/ProxyProductos.php');
+require_once('Carrito_InfoPago.php');
+require_once('../Services/Proxys/ProxyProductos.php');
 
 class Gestor_Carrito{
 

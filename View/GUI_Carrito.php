@@ -40,6 +40,8 @@
 
   <?php
   include 'header.php';
+  include '../Controller/Oyente_Carrito.php';
+  var_dump($carrito);
   ?>
 
   <main id="main">
@@ -67,7 +69,7 @@
 			<p>descripcion</p>
 			<button>Eliminar</button>
 		</div>
-		<a href="./GUI_Pago.php" style="width: 100%; display:flex">
+		<a href="./GUI_Pago.php" style="width: 100%; display:flex; flex-direction: row; justify-content: center;">
 			<button  class="btn btn-primary">Pagar carrito</button>
 		</a>
 	</div>

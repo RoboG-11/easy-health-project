@@ -59,7 +59,15 @@
       <div class="container">
         <div class="paymentContainer">
           <div class="paymentCard">
-            <h3 style="color: floralwhite ;margin-top: 1em;">Forma de pago</h3>
+            <h3 style="color: floralwhite ;margin-top: 0.5em;">Forma de pago</h3>
+            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="Nombre del titular">
+            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="VISA/MASTERCARD/AMERICANEXPRESS">
+            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="Numero de tarjeta">
+            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="Fecha de expiracion">
+            <input type="password" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="CVV">
+            <div style="margin-top: 1.3em; width: 50%;">
+              <button class="btn btn-primary" style="width: 100%;">Pagar</button>
+            </div>
           </div>
         </div>
       </div>

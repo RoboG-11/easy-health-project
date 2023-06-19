@@ -1,5 +1,5 @@
 <?php
-require_once './Decorador_Carrito.php';
+require_once 'Decorador_Carrito.php';
 
 class Carrito_InfoPago extends Decorador_Carrito {
 	protected $nombreUsuario;
