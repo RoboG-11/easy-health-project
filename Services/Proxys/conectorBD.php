@@ -348,8 +348,26 @@ class ConectorBD
     }
   }
 
-  public function getIDCuentaPaciente($nombre, $apellido, $telefono) {
-    
+  public function getIdCuentaUsuario($nombre, $apellido, $telefono)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT Id_Cuenta FROM cuentas WHERE Nombre = :nombre AND Apellido = :apellido AND Telefono = :telefono");
+      $query->bindParam(':nombre', $nombre);
+      $query->bindParam(':apellido', $apellido);
+      $query->bindParam(':telefono', $telefono);
+      $query->execute();
+
+      if ($query->rowCount()) {
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['Id_Cuenta'];
+      } else {
+        return false; // El usuario no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
   }
 
   public function showDoctoresByEstablecimiento($establecimiento)
