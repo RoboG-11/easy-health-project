@@ -48,7 +48,7 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Pagos</h2>
+          <h2>Pagar productos</h2>
         </div>
 
       </div>
@@ -57,71 +57,11 @@
     <!-- ======= Medicines section ======= -->
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
       <div class="container">
-
-        <div class="row">
-
-          <div class="col-12 col-md-6 col-lg-4 pb-5">
-            <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
-            </div>
+        <div class="paymentContainer">
+          <div class="paymentCard">
+            <h3 style="color: floralwhite ;margin-top: 1em;">Forma de pago</h3>
           </div>
-
-          <div class="col-12 col-md-6 col-lg-4 pb-5">
-            <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4 pb-5">
-            <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4 pb-5">
-            <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4 pb-5">
-            <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4 pb-5">
-            <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
-              <img src="assets/img/payments/oxxo.png">
-              <p class="m-0 fw-bold fs-5">Nombre medicamento</p>
-              <span class="m-0 fw-light">Contenido medicamento</span>
-              <p class="price-medicine m-0 fw-bold fs-5">Precio</p>
-              <button class="btn btn-primary">Carrito</button>
-            </div>
-          </div>
-
         </div>
-
       </div>
     </section><!-- End Medicines section -->
 

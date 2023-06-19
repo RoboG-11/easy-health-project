@@ -67,7 +67,9 @@
 			<p>descripcion</p>
 			<button>Eliminar</button>
 		</div>
-		<button>Pagar carrito</button>
+		<a href="./GUI_Pago.php" style="width: 100%; display:flex">
+			<button  class="btn btn-primary">Pagar carrito</button>
+		</a>
 	</div>
     <!-- ======= Medicines section ======= -->
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">

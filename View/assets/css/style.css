@@ -2450,3 +2450,21 @@ div.product{
   align-items: center;
   padding: 1em;
 }
+
+div.paymentContainer{
+  display: flex;
+  flex-direction: column;
+  width: screen;
+  height: screen;
+  align-items: center;
+}
+
+div.paymentCard{
+  display: flex;
+  background: #0b212d;
+  flex-direction: column;
+  width: 50em;
+  height: 40em;
+  align-items: center;
+  border-radius: 5em;
+}
