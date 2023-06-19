@@ -317,7 +317,7 @@ class ConectorBD
     $connection = $this->connect();
     if ($connection !== NULL) {
       $query = $connection->prepare("SELECT c.nombre, c.apellido, c.telefono, c.correo, c.password, c.id_direccion_c, 
-                                      d.id_especialidad, d.c_Profesional, d.formacion 
+                                      d.id_doctor,d.id_especialidad, d.c_Profesional, d.formacion 
                                       FROM cuentas c
                                       JOIN doctores d ON c.id_cuenta = d.id_doctor
                                       WHERE c.nombre = :nombreCuenta");
@@ -334,7 +334,7 @@ class ConectorBD
   {
     $connection = $this->connect();
     if ($connection !== NULL) {
-      $query = $connection->prepare("SELECT nombre, Id_Direccion_E, Especialidad
+      $query = $connection->prepare("SELECT nombre, Id_Direccion_E, Especialidad, id_Establecimento
                                       FROM establecimientos
                                       WHERE nombre = :nombreE");
       $query->bindParam(':nombreE', $nombreEstablecimiento);

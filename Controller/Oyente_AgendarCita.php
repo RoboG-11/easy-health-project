@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   $gestorCitas->getFecha($fecha);
   $gestorCitas->getHorario($horario);
-  $gestorCitas->setCitaMedica(4,21,432,'15:30:00',312,'2023-05-21');
+  //$gestorCitas->setCitaMedica(5,21,432,'15:30:00',312,'2023-05-21');
   
 
 

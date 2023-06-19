@@ -80,7 +80,8 @@ class Gestor_Citas
     $this->establecimiento = new Establecimiento(
       $result['nombre'],
       $result['Id_Direccion_E'],
-      new Especialidad($result['Especialidad'])
+      new Especialidad($result['Especialidad']),
+      $result['id_Establecimento']
     );
   }
 
@@ -88,6 +89,7 @@ class Gestor_Citas
     $proxy = new ProxyCitaMedica();
     $result = $proxy->getDoctor($nombre);
     $this->doctor = new Doctor(
+      $result['id_doctor'],
       $result['nombre'],
       $result['apellido'],
       $result['telefono'],
@@ -100,8 +102,8 @@ class Gestor_Citas
     );
   }
 
-  public function setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha){
+  public function setCitaMedica($idCita, $paciente,){
     $proxy = new ProxyCitaMedica();
-    $proxy->setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha);
+    $proxy->setCitaMedica($idCita, $this->doctor->id, $paciente, $this->horario->hora, $this->establecimiento->id, $this->fecha->fecha);
   }
 }
