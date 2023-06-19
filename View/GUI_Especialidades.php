@@ -55,7 +55,7 @@
           </div>
 
           <!-- Cardiología -->
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch pb-5">
             <div class="card" data-aos="fade-up" data-aos-delay="100">
               <img src="assets/img/especialidad2.png" class="card-img-top" alt="Cardiología">
               <div class="card-body">
@@ -66,7 +66,7 @@
           </div>
 
           <!-- Pediatría -->
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch pb-5">
             <div class="card" data-aos="fade-up" data-aos-delay="200">
               <img src="assets/img/especialidad3.webp" class="card-img-top" alt="Pediatría">
               <div class="card-body">

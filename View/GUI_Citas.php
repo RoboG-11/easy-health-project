@@ -74,6 +74,9 @@
                 <li class="nav-item flex-fill" role="presentation">
                   <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Cancelar</button>
                 </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100" id="citas-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Citas médicas</button>
+                </li>
               </ul>
               <div class="tab-content pt-2" id="borderedTabJustifiedContent">
                 <div class="tab-pane fade show active" id="bordered-justified-home" role="tabpanel" aria-labelledby="home-tab">
@@ -114,7 +117,7 @@
 
                     <div class="row mb-6">
                       <div align="right">
-                        <button type="submit" class="btn btn-primary">Agendar</button>
+                        <button href="./GUI_Citas.php" type="submit" class="btn btn-primary" onclick="showAlert()">Agendar</button>
                       </div>
                     </div>
 
@@ -201,11 +204,54 @@
                     </div>
                   </div>
                 </div>
-              </div><!-- End Bordered Tabs Justified -->
+
+                <div class="tab-content pt-2" id="borderedTabJustifiedContent">
+                  <div class="tab-pane fade show active" id="bordered-justified-home" role="tabpanel" aria-labelledby="citas-tab">
+                    <h5 class="card-title">Ver cita médica</h5>
+
+                    <!-- General Form Elements -->
+                    <form  id="citas-select" action="../Controller/Oyente_Citas.php" method="POST">
+                      <div class="row mb-3">
+                        <label for="inputDate" class="col-sm-2 col-form-label">ID:</label>
+                        <div class="col-sm-10">
+                          <span name="fecha"></span>
+                        </div>
+                        <div class="row mb-3">
+                          <label for="inputDate" class="col-sm-2 col-form-label">Fecha:</label>
+                          <div class="col-sm-10">
+                            <span name="fecha"></span>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label for="inputTime" class="col-sm-2 col-form-label">Horario:</label>
+                          <div class="col-sm-10">
+                            <span name="horario"></span>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label">Establecimiento:</label>
+                          <div class="col-sm-10">
+                            <span name="establecimiento"></span>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label">Doctor:</label>
+                          <div class="col-sm-10">
+                            <span name="doctores"></span>
+                          </div>
+                        </div>
+
+                    </form>
+                    <!-- End General Form Elements -->
+
+                  </div>
+                </div><!-- End Bordered Tabs Justified -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
   </main><!-- End #main -->
@@ -226,7 +272,11 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <script>
+    function showAlert() {
+      alert("¡Cita agendada con éxito!");
+    }
+  </script>
   <script>
     $(document).ready(function() {
       // Llenar los establecimientos al cargar la página
@@ -238,6 +288,17 @@
         },
         success: function(response) {
           $('#establecimientos-select').html(response);
+        }
+      });
+      // Llenar las citas al cargar la página
+      $.ajax({
+        url: '../Controller/Oyente_Citas.php',
+        type: 'POST',
+        data: {
+          action: 'getCitas'
+        },
+        success: function(response) {
+          $('#citas-select').html(response);
         }
       });
 

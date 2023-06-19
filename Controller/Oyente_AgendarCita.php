@@ -13,5 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $words = explode(" ", $doctor);
   $doctor = $words[0];
   $gestorCitas = new Gestor_Citas();
-  $gestorCitas->crearCita($doctor, $nombreUsuario, $horario, $establecimiento, $fecha);  
+  $gestorCitas->crearCita($doctor, $nombreUsuario, $horario, $establecimiento, $fecha); 
+}else{
+  include '../Model/Gestor_Citas.php';
+
 }
