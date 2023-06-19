@@ -1,4 +1,4 @@
-<form>
+<form action="../Controller/Oyente_Doctores.php" method="POST">
   <div class="row mb-3">
     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto de perfil</label>
     <div class="col-md-8 col-lg-9">
@@ -43,14 +43,13 @@
   <div class="row mb-3">
     <label for="establecimiento" class="col-md-4 col-lg-3 col-form-label">Establecimiento:</label>
     <div class="col-md-8 col-lg-9">
-      <select name="establecimiento" class="form-select" aria-label="Seleccione un establecimiento">
+      <select name="establecimiento" class="form-select" aria-label="Seleccione un establecimiento" id="establecimientos-select">
         <option selected>Seleccione un establecimiento</option>
-        <!-- Aquí se deben generar dinámicamente las opciones con los establecimientos disponibles en la base de datos -->
-        <option value="1">Establecimiento 1</option>
-        <option value="2">Establecimiento 2</option>
-        <option value="3">Establecimiento 3</option>
-        <!-- Agrega más opciones según los establecimientos en la base de datos -->
       </select>
     </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
   </div>
 </form><!-- End Profile Edit Form -->

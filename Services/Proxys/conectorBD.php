@@ -388,6 +388,76 @@ class ConectorBD
     }
   }
 
+  public function updatePaciente($idCuenta, $sexo, $edad, $peso, $fechaNacimiento, $nacionalidad, $enfermedadCronica, $alergias, $nss)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("UPDATE pacientes
+                                   SET Sexo = :sexo, Edad = :edad, Peso = :peso, Fecha_Nacimiento = :fechaNacimiento,
+                                       Nacionalidad = :nacionalidad, Enfermedad_Cronica = :enfermedadCronica,
+                                       Alergias = :alergias, NSS = :nss
+                                   WHERE id_cuenta = :idCuenta");
+      $query->bindParam(':sexo', $sexo);
+      $query->bindParam(':edad', $edad);
+      $query->bindParam(':peso', $peso);
+      $query->bindParam(':fechaNacimiento', $fechaNacimiento);
+      $query->bindParam(':nacionalidad', $nacionalidad);
+      $query->bindParam(':enfermedadCronica', $enfermedadCronica);
+      $query->bindParam(':alergias', $alergias);
+      $query->bindParam(':nss', $nss);
+      $query->bindParam(':idCuenta', $idCuenta);
+      $query->execute();
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function getIdEstablecimiento($nombreEstablecimiento)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT id_Establecimiento FROM establecimientos WHERE Nombre = :nombreEstablecimiento");
+      $query->bindParam(':nombreEstablecimiento', $nombreEstablecimiento);
+      $query->execute();
+
+      if ($query->rowCount()) {
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['id_Establecimiento'];
+      } else {
+        return false; // El establecimiento no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
+  public function updateDoctor($idDoctor, $idEspecialidad, $cProfesional, $formacion, $idEstablecimiento, $sexo)
+
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("UPDATE doctores
+                                 SET Id_especialidad = :idEspecialidad, c_profesional = :cProfesional,
+                                     formacion = :formacion, id_establecimiento = :idEstablecimiento,
+                                     sexo = :sexo
+                                 WHERE ID_doctor = :idDoctor");
+      $query->bindParam(':idEspecialidad', $idEspecialidad);
+      $query->bindParam(':cProfesional', $cProfesional);
+      $query->bindParam(':formacion', $formacion);
+      $query->bindParam(':idEstablecimiento', $idEstablecimiento);
+      $query->bindParam(':sexo', $sexo);
+      $query->bindParam(':idDoctor', $idDoctor);
+      $query->execute();
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
   public function showDoctoresByEstablecimiento($establecimiento)
   {
     $connection = $this->connect();

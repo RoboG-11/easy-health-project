@@ -190,9 +190,27 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Llenar los establecimientos al cargar la página
+      $.ajax({
+        url: '../Controller/Oyente_Citas.php',
+        type: 'POST',
+        data: {
+          action: 'getEstablecimientos'
+        },
+        success: function(response) {
+          $('#establecimientos-select').html(response);
+        }
+      });
+
+    });
+  </script>
 
 </body>
 
