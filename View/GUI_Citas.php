@@ -75,7 +75,7 @@
                   <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Cancelar</button>
                 </li>
                 <li class="nav-item flex-fill" role="presentation">
-                  <button class="nav-link w-100" id="citas-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Citas médicas</button>
+                  <button class="nav-link w-100" id="citas-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-citas" type="button" role="tab" aria-controls="contact" aria-selected="false">Citas médicas</button>
                 </li>
               </ul>
               <div class="tab-content pt-2" id="borderedTabJustifiedContent">
@@ -204,50 +204,48 @@
                     </div>
                   </div>
                 </div>
+                <div class="tab-pane fade " id="bordered-justified-citas" role="tabpanel" aria-labelledby="citas-tab">
+                  <h5 class="card-title">Ver cita médica</h5>
 
-                <div class="tab-content pt-2" id="borderedTabJustifiedContent">
-                  <div class="tab-pane fade show active" id="bordered-justified-home" role="tabpanel" aria-labelledby="citas-tab">
-                    <h5 class="card-title">Ver cita médica</h5>
-
-                    <!-- General Form Elements -->
-                    <form  id="citas-select" action="../Controller/Oyente_Citas.php" method="POST">
+                  <!-- General Form Elements -->
+                  <form id="citas-select" action="../Controller/Oyente_Citas.php" method="POST">
+                    <div class="row mb-3">
+                      <label for="inputDate" class="col-sm-2 col-form-label">ID:</label>
+                      <div class="col-sm-10">
+                        <span name="fecha"></span>
+                      </div>
                       <div class="row mb-3">
-                        <label for="inputDate" class="col-sm-2 col-form-label">ID:</label>
+                        <label for="inputDate" class="col-sm-2 col-form-label">Fecha:</label>
                         <div class="col-sm-10">
                           <span name="fecha"></span>
                         </div>
-                        <div class="row mb-3">
-                          <label for="inputDate" class="col-sm-2 col-form-label">Fecha:</label>
-                          <div class="col-sm-10">
-                            <span name="fecha"></span>
-                          </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="inputTime" class="col-sm-2 col-form-label">Horario:</label>
+                        <div class="col-sm-10">
+                          <span name="horario"></span>
                         </div>
-                        <div class="row mb-3">
-                          <label for="inputTime" class="col-sm-2 col-form-label">Horario:</label>
-                          <div class="col-sm-10">
-                            <span name="horario"></span>
-                          </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Establecimiento:</label>
+                        <div class="col-sm-10">
+                          <span name="establecimiento"></span>
                         </div>
+                      </div>
 
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label">Establecimiento:</label>
-                          <div class="col-sm-10">
-                            <span name="establecimiento"></span>
-                          </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Doctor:</label>
+                        <div class="col-sm-10">
+                          <span name="doctores"></span>
                         </div>
+                      </div>
 
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label">Doctor:</label>
-                          <div class="col-sm-10">
-                            <span name="doctores"></span>
-                          </div>
-                        </div>
+                  </form>
+                  <!-- End General Form Elements -->
 
-                    </form>
-                    <!-- End General Form Elements -->
+                </div>
 
-                  </div>
-                </div><!-- End Bordered Tabs Justified -->
               </div>
             </div>
           </div>
