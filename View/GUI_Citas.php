@@ -41,6 +41,7 @@
 
   <?php
   include 'header1.php';
+  echo $nombreUsuario;
   ?>
 
   <main id="main" class="main">

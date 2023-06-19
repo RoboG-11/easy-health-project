@@ -317,7 +317,7 @@ class ConectorBD
     $connection = $this->connect();
     if ($connection !== NULL) {
       $query = $connection->prepare("SELECT c.nombre, c.apellido, c.telefono, c.correo, c.password, c.id_direccion_c, 
-                                      d.id_especialidad, d.c_Profesional, d.formacion 
+                                      d.id_doctor,d.id_especialidad, d.c_Profesional, d.formacion 
                                       FROM cuentas c
                                       JOIN doctores d ON c.id_cuenta = d.id_doctor
                                       WHERE c.nombre = :nombreCuenta");
@@ -334,7 +334,7 @@ class ConectorBD
   {
     $connection = $this->connect();
     if ($connection !== NULL) {
-      $query = $connection->prepare("SELECT nombre, Id_Direccion_E, Especialidad
+      $query = $connection->prepare("SELECT nombre, Id_Direccion_E, Especialidad, id_Establecimento
                                       FROM establecimientos
                                       WHERE nombre = :nombreE");
       $query->bindParam(':nombreE', $nombreEstablecimiento);
@@ -434,7 +434,23 @@ class ConectorBD
     }
   }
 
-
+  public function setCitamedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("INSERT INTO citas (Id_Cita, Id_Doctor, Id_Paciente, Horario, Id_Direccion_E, Fecha)
+                                        VALUES (:idCita, :doctor, :paciente, :horario, :establecimiento, :fecha)");
+      $query->bindParam(':idCita', $idCita);
+      $query->bindParam(':doctor', $doctor);
+      $query->bindParam(':paciente', $paciente);
+      $query->bindParam(':horario', $horario);
+      $query->bindParam(':establecimiento', $establecimiento);
+      $query->bindParam(':fecha', $fecha);
+      $query->execute();
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
 
 
