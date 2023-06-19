@@ -22,6 +22,7 @@ if (isset($_POST['func'])) {
     $gestorCuentas = new GestorCuentas();
     // Se registra en la BD tabla de cuentas
     $gestorCuentas->Registro($nombre, $apellido, $telefono, $correo, $contraseña, $direccion, $ocupación);
+    $gestorCuentas->crearCarrito($correo, $contraseña);
 
     // Se registra en la BD tabla doctores o pacientes
     if ($ocupación == 2) {

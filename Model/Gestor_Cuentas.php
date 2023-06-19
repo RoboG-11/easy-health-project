@@ -6,6 +6,7 @@ include_once '../Services/Proxys/ProxyRegistro.php';
 include_once '../Services/Proxys/ProxyIdCuenta.php';
 include_once '../Services/Proxys/ProxyRol.php';
 include_once '../Services/Proxys/ProxyInfoCitaMedica.php';
+include_once '../Services/Proxys/ProxyProductos.php';
 
 class GestorCuentas
 {
@@ -57,6 +58,15 @@ class GestorCuentas
     //if($proxyBD->userExists()) 
   }
 
+  public function crearCarrito($correo, $contraseña)
+  {
+    $proxyID = new ProxyInicioSesion($correo, $contraseña);
+    $idCuenta = $proxyID->getIdCuenta();
+
+    $proxyProducto = new ProxyProductos();
+    $proxyProducto->crearCarrito($idCuenta);
+  }
+
   public function registroDoctor($correo, $contraseña)
   {
 
@@ -104,23 +114,24 @@ class GestorCuentas
     return $rolCuenta;
   }
 
-  public function getIdCuenta($nombre, $apellido, $telefono){
+  public function getIdCuenta($nombre, $apellido, $telefono)
+  {
     $proxy = new ProxyCitaMedica($nombre, $apellido, $telefono);
     $idCuenta = $proxy->getIdCuenta($nombre, $apellido, $telefono);
 
     return $idCuenta;
   }
 
-  public function updatePaciente($idCuenta, $sexo, $edad, $peso, $fechaNacimiento, $nacionalidad, $enfermedadCronica, $alergias, $nss){
+  public function updatePaciente($idCuenta, $sexo, $edad, $peso, $fechaNacimiento, $nacionalidad, $enfermedadCronica, $alergias, $nss)
+  {
     $proxy = new ProxyCitaMedica($idCuenta, $sexo, $edad, $peso, $fechaNacimiento, $nacionalidad, $enfermedadCronica, $alergias, $nss);
     $proxy->updatePaciente($idCuenta, $sexo, $edad, $peso, $fechaNacimiento, $nacionalidad, $enfermedadCronica, $alergias, $nss);
   }
 
-public function updateDoctores($idCuenta, $especialidad, $cedula, $formacion, $establecimiento, $sexo, $nombre){
-  $proxy = new ProxyCitaMedica();
-  $idEstablecimiento = $proxy->getIdEstablecimientoByName($establecimiento);
-  $proxy->updateDoctor($idCuenta, $especialidad, $cedula, $formacion, $idEstablecimiento, $sexo);
-}
-
-
+  public function updateDoctores($idCuenta, $especialidad, $cedula, $formacion, $establecimiento, $sexo, $nombre)
+  {
+    $proxy = new ProxyCitaMedica();
+    $idEstablecimiento = $proxy->getIdEstablecimientoByName($establecimiento);
+    $proxy->updateDoctor($idCuenta, $especialidad, $cedula, $formacion, $idEstablecimiento, $sexo);
+  }
 }
