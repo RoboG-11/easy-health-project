@@ -2426,3 +2426,27 @@ img.cart{
   margin-right: 0.6em;
 }
 
+div.cartBody{
+  height: 80%;
+  width:90%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.headerProducts{
+  display: flex;
+  height: 3em;
+  justify-content: space-between;
+  background: #f3f8fa;
+  align-items: center;
+}
+
+div.product{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}

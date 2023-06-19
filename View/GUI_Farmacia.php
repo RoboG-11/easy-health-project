@@ -70,7 +70,12 @@
             class="cartContainer"
           >
             <!-- <p>asdasd</p> -->
+            <!-- <a href="./GUI_Carrito.php"> -->
+              <!-- <img src="assets/img/products/product-1.png" alt="product" class="img-fluid"> -->
+            <!-- </a> -->
+            <a href="GUI_Carrito.php">
               <img type="button" src="./assets/img/cart.svg" class="cart" alt="cart">
+            </a>
             <p>0</p>
           </div>
         </div>

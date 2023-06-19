@@ -15,6 +15,12 @@ include("./Gestor_Carrito.php");
 
 	$carrito = $gestor->getCarrito();
 	$carrito->agregarProducto($result);
-	echo "---------------------------------------------";
+	$carrito->agregarProducto($gestor->getInfoProducto('Ciprofloxacino'));
+	$carrito->agregarProducto($gestor->getInfoProducto('Sal de uvas picot Polvo Efervescente'));
+	echo "<p>---------------------------------------------<p/>";
+	var_dump($carrito->getProductos());
+
+	echo "<p>---------------------------------------------<p/>";
+	$carrito->eliminarProducto('Flanax');
 	var_dump($carrito->getProductos());
 ?>

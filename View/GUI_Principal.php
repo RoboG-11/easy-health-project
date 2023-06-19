@@ -57,7 +57,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
             <div class="icon-box icon-box-pink">
               <div class="icon"><i class="bi bi-heart-pulse"></i></div>
-              <h4 class="title"><a href="">Atención medica a distancia</a></h4>
+              <h4 class="title"><a href="./GUI_IniciarSesion.php">Atención medica a distancia</a></h4>
               <p class="description">Consulta los doctores disponibles cerca de tu zona, su especialidad, y horarios de atencion. Agenda tu citas desde casa!</p>
             </div>
           </div>
@@ -65,7 +65,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box icon-box-cyan">
               <div class="icon"><i class="bi bi-clipboard2-pulse"></i></div>
-              <h4 class="title"><a href="">Gestiona tus citas medicas</a></h4>
+              <h4 class="title"><a href="./GUI_Citas.php">Gestiona tus citas medicas</a></h4>
               <p class="description">Consigue pacientes que necesiten tus servicios y agenda cada una de tus citas por medio de nuestra plataforma.</p>
             </div>
           </div>
@@ -73,7 +73,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box icon-box-green">
               <div class="icon"><i class="bi bi-prescription2"></i></div>
-              <h4 class="title"><a href="">Farmacia</a></h4>
+              <h4 class="title"><a href="./GUI_Farmacia.php">Farmacia</a></h4>
               <p class="description">Consulta nuestro catalogo de medicamentos, elige, paga y recibelos en pa puerta de tu casa.</p>
             </div>
           </div>
@@ -81,7 +81,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box icon-box-blue">
               <div class="icon"><i class="bi bi-bandaid"></i></div>
-              <h4 class="title"><a href="">Emergencias</a></h4>
+              <h4 class="title"><a href="./GUI_Emergencia.php">Emergencias</a></h4>
               <p class="description">Visualiza los establecimientos mas cercanos para atender tu emergencia, la ruta de llegada, etc.</p>
             </div>
           </div>

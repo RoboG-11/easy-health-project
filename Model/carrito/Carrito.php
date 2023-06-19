@@ -9,10 +9,10 @@ class Carrito implements I_Carrito{
 	// 	'Pregabalina'
 	// ];
 
-	private $productos = [];
+	protected $productos;
 
 	public function __construct(){
-		
+		$this->productos = [];
 	}
 
 	public function getProductos(){
@@ -22,7 +22,8 @@ class Carrito implements I_Carrito{
 		array_push($this->productos, $producto);
 	}
 	public function eliminarProducto($nombre_Producto){
-		unset($productos[$nombre_Producto]);
+		$clave = array_search($nombre_Producto, $this->productos, true);
+		unset($this->productos[$clave]);
 	}
 
 	public function numeroProductos(){
