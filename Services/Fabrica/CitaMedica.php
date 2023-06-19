@@ -21,6 +21,7 @@ class CitaMedica extends CitaAbstracta
   public function visualizaCitaMedica()
   {
     echo "<br><br>DATOS DE CITA MEDICA:" . "<br>";
+    echo "ID: " . $this->idCita. "<br>";
     echo "DOCTOR: " . $this->doctor->getNombre() . "<br>";
     echo "PACIENTE: " . $this->paciente->getNombre() . "<br>";
     echo "HORARIO: " . $this->horario->getHora() . "<br>";
@@ -29,5 +30,8 @@ class CitaMedica extends CitaAbstracta
 
   public function setCitaMedica()
   {
+  }
+  public function getID(){
+      return $this->idCita;
   }
 }

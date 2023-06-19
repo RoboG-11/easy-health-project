@@ -56,12 +56,12 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
 
     <div class="pagetitle">
       <h1>Perfil</h1>
-      <nav>
+      <!-- <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="GUI_MenuPaciente">Home</a></li>
           <li class="breadcrumb-item">Perfil</li>
         </ol>
-      </nav>
+      </nav> -->
     </div><!-- End Page Title -->
 
     <section class="section profile">

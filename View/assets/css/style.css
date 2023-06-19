@@ -2414,13 +2414,57 @@ section {
   transform: translate(-50%, -50%);
 }
 
-.divCart{
+div.cartContainer{
   display: flex;
-  width: 100%;
-  height: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.divCart .hero {
-  scale: 10;
+img.cart{
+  width: 2.7em;
+  margin-right: 0.6em;
 }
 
+div.cartBody{
+  height: 80%;
+  width:90%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.headerProducts{
+  display: flex;
+  height: 3em;
+  justify-content: space-between;
+  background: #f3f8fa;
+  align-items: center;
+}
+
+div.product{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+div.paymentContainer{
+  display: flex;
+  flex-direction: column;
+  width: screen;
+  height: screen;
+  align-items: center;
+}
+
+div.paymentCard{
+  display: flex;
+  background: #0b212d;
+  flex-direction: column;
+  width: 50em;
+  height: 40em;
+  align-items: center;
+  border-radius: 5em;
+}

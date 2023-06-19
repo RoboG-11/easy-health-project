@@ -48,20 +48,33 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Pagar productos</h2>
+          <h2>Carrito de compras</h2>
+          </div>
         </div>
-
-      </div>
+	</div>
     </section><!-- End Pharmacy section -->
-
+	<div class="cartBody">
+		<div class="headerProducts">
+			<p>Nombre</p>
+			<p>Precio</p>
+			<p>Descripcion</p>
+			<div></div>
+			<!-- <button>borrar</button> -->
+		</div>
+		<div class="product">
+			<p>NombreProducto</p>
+			<p>PrecioProducto</p>
+			<p>descripcion</p>
+			<button>Eliminar</button>
+		</div>
+		<a href="./GUI_Pago.php" style="width: 100%; display:flex">
+			<button  class="btn btn-primary">Pagar carrito</button>
+		</a>
+	</div>
     <!-- ======= Medicines section ======= -->
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
       <div class="container">
-        <div class="paymentContainer">
-          <div class="paymentCard">
-            <h3 style="color: floralwhite ;margin-top: 1em;">Forma de pago</h3>
-          </div>
-        </div>
+
       </div>
     </section><!-- End Medicines section -->
 

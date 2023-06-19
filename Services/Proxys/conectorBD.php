@@ -10,10 +10,10 @@ class ConectorBD
 
   public function __construct()
   {
-    $this->host = 'localhost:3308';
+    $this->host = 'localhost:3306';
     $this->db = 'easyhealth';
     $this->user = 'root';
-    $this->password = "NegritO2001";
+    $this->password = "";
     $this->charset = 'utf8mb4';
   }
 
@@ -330,6 +330,24 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+  public function getCuentaPacienteByNombre($nombreCuenta)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT c.nombre, c.apellido, c.telefono, c.correo, c.password, c.id_direccion_c, 
+                                      d.id_cuenta ,d.sexo, d.edad, d.peso,d.fecha_nacimiento,d.nacionalidad,d.enfermedad_cronica,
+                                      d.alergias,d.nss
+                                      FROM cuentas c
+                                      JOIN pacientes d ON c.id_cuenta = d.id_cuenta
+                                      WHERE c.nombre = :nombreCuenta");
+      $query->bindParam(':nombreCuenta', $nombreCuenta);
+      $query->execute();
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+      return $result;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
   public function getEstablecimientoByName($nombreEstablecimiento)
   {
@@ -583,13 +601,12 @@ class ConectorBD
   }
 
   //saul
-  public function getProductInfo($product)
-  {
+  public function getProductInfo($nameProduct){
     $connection = $this->connect();
-
     if ($connection !== null) {
       $query = $connection->prepare('SELECT * FROM medicamentos WHERE nombre = :product');
-      $query->execute(['product' => $product]);
+      $query->execute(['product' => $nameProduct]);
+      return $query->fetch(PDO::FETCH_ASSOC);
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }

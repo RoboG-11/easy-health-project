@@ -28,4 +28,8 @@ class Cuenta
   public function modificar()
   {
   }
+  public function getNombre()
+  {
+    return $this->nombre;
+  }
 }
