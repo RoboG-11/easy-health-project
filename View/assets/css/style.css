@@ -2464,7 +2464,8 @@ div.paymentCard{
   background: #0b212d;
   flex-direction: column;
   width: 50em;
-  height: 40em;
+  height: 33em;
   align-items: center;
   border-radius: 5em;
+  padding-top: 1.7em;
 }
