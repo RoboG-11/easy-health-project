@@ -22,29 +22,26 @@ class Gestor_Citas
   public $horario;
   public $establecimiento;
   public $fecha;
+  public $citaMedica;
 
   public function crearFabrica($doctor, $paciente, $horario, $establecimiento, $fecha)
   {
     $this->fabritaCitaMedica = new FabricaCitaMedica();
     $this->fabritaCitaMedica->creaCitaMedica($doctor, $paciente, $horario, $establecimiento);
-    echo "Fecha: $fecha<br>";
-    echo "Horario: $horario<br>";
-    echo "Doctor seleccionado: $doctor<br>";
-    echo "Establecimiento seleccionado: $establecimiento";
-    echo "Paciente seleccionado: $paciente";
   }
 
+// Mostrar los nombres de los establecimientos en el formulario
   public function mostrarEstablecimientos()
   {
     $proxy = new ProxyCitaMedica();
     $places = $proxy->getAllPlaces();
 
-    // Mostrar los nombres de los establecimientos en el formulario
+    
     foreach ($places as $nombre) {
       echo '<option value="' . $nombre . '">' . $nombre . '</option>';
     }
   }
-
+// Mostrar los nombres de los doctores en el formulario
   public function mostrarDoctores($establecimiento)
   {
     $proxy = new ProxyCitaMedica();
