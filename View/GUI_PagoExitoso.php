@@ -58,16 +58,14 @@
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
       <div class="container">
         <div class="paymentContainer">
-          <div class="paymentCard">
-            <h3 style="color: floralwhite ;margin-top: 0.5em;">Forma de pago</h3>
-            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="Nombre del titular">
-            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="VISA/MASTERCARD/AMERICANEXPRESS">
-            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="Numero de tarjeta">
-            <input type="text" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="Fecha de expiracion">
-            <input type="password" style="width: 70%; margin-top: 2em; height: 2.3em; border-radius: 0.4em; padding:1em" placeholder="CVV">
-            <div style="margin-top: 1.3em; width: 50%;">
-              <form action="../View/GUI_PagoExitoso.php">
-                <button class="btn btn-primary" style="width: 100%;">Pagar</button>
+          <div class="paymentCard" style="displa">
+            <h1 style="color: floralwhite ;margin-top: 3.8em;">¡Pago exitoso!</h1>
+            <h2 style="color: white;margin-top: 0.5em;">Gracias por comprar nuestro producto</h2>
+            <p style="color: white">Pudes consultar tus pagos <b>
+              <a href="../View/GUI_Pagos.php" target="_blank"> aqui</a>
+            </b></p>
+              <form action="../View/GUI_Principal.php">
+                <button class="btn btn-primary" style="width: 100%; margin-top:2em">Finalizar</button>
               </form>
             </div>
           </div>
