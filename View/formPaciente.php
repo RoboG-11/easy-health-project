@@ -1,4 +1,4 @@
-<form>
+<form action="../Controller/Oyente_Paciente.php" method="POST">
   <div class="row mb-3">
     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto de perfil</label>
     <div class="col-md-8 col-lg-9">
