@@ -51,28 +51,55 @@
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
           <h2>Carrito de compras</h2>
-          </div>
         </div>
-	</div>
+      </div>
+      </div>
     </section><!-- End Pharmacy section -->
-	<div class="cartBody">
-		<div class="headerProducts">
-			<p>Nombre</p>
-			<p>Precio</p>
-			<p>Descripcion</p>
-			<div></div>
-			<!-- <button>borrar</button> -->
-		</div>
-		<div class="product">
-			<p>NombreProducto</p>
-			<p>PrecioProducto</p>
-			<p>descripcion</p>
-			<button>Eliminar</button>
-		</div>
-		<a href="./GUI_Pago.php" style="width: 100%; display:flex; flex-direction: row; justify-content: center;">
-			<button  class="btn btn-primary">Pagar carrito</button>
-		</a>
-	</div>
+    <div class="cartBody">
+      <div class="headerProducts">
+        <p>Nombre</p>
+        <p>Precio</p>
+        <p>Descripcion</p>
+        <div></div>
+        <!-- <button>borrar</button> -->
+      </div>
+      <div class="product">
+        <p>NombreProducto</p>
+        <p>PrecioProducto</p>
+        <p>descripcion</p>
+        <button>Eliminar</button>
+      </div>
+
+      <div class="product2">
+        <?php
+        $nombreUsuario = isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : '';
+        $apellidoUsuario = isset($_SESSION['apellidoUsuario']) ? $_SESSION['apellidoUsuario'] : '';
+        $correoUsuario = isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : '';
+        $telefonoUsuario = isset($_SESSION['telefonoUsuario']) ? $_SESSION['telefonoUsuario'] : '';
+        $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionUsuario'] : '';
+
+        $gestor = new Gestor_Carrito($carrito);
+
+        $idUsuario = $gestor->getIdUsuario($nombreUsuario, $apellidoUsuario, $correoUsuario, $telefonoUsuario, $direccionUsuario);
+
+        $medicamentos =  $gestor->showAllMedicamentos($idUsuario);
+
+        foreach ($medicamentos as $medicamento) {
+          echo ' <div class="product3"> ';
+          echo '<p>' . $medicamento['nombre'] . '</p> <br>';
+          echo '<p>' . $medicamento['precio'] . '</p> <br>';
+          echo '<p>' . $medicamento['descripcion'] . '</p> <br>';
+          echo '<button>Eliminar</button>';
+          echo '</div>';
+        }
+
+        ?>
+      </div>
+
+      <a href="./GUI_Pago.php" style="width: 100%; display:flex; flex-direction: row; justify-content: center;">
+        <button class="btn btn-primary">Pagar carrito</button>
+      </a>
+    </div>
     <!-- ======= Medicines section ======= -->
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
       <div class="container">

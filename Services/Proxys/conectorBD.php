@@ -158,6 +158,32 @@ class ConectorBD
     }
   }
 
+  public function getIdUsuario($nombre, $apellido, $correo, $telefono, $direccion)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT Id_Cuenta FROM cuentas WHERE nombre = :nombre AND apellido = :apellido AND correo = :correo AND telefono = :telefono AND id_direccion_c = :direccion");
+      $query->execute([
+        'nombre' => $nombre,
+        'apellido' => $apellido,
+        'correo' => $correo,
+        'telefono' => $telefono,
+        'direccion' => $direccion
+      ]);
+
+      if ($query->rowCount()) {
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['Id_Cuenta'];
+      } else {
+        return false; // El usuario no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
   public function getIdRol($idCuenta)
   {
     $connection = $this->connect();
@@ -367,6 +393,32 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+
+  public function showAllMedicamentos($idUsuario)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT nombre, precio, descripcion FROM carrito WHERE id_usuario = :idUsuario");
+      $query->bindParam(':idUsuario', $idUsuario);
+      $query->execute();
+      $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+      $medicamentos = array();
+      foreach ($results as $row) {
+        $medicamento = array(
+          'nombre' => $row['nombre'],
+          'precio' => $row['precio'],
+          'descripcion' => $row['descripcion']
+        );
+        $medicamentos[] = $medicamento;
+      }
+
+      return $medicamentos;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
 
   public function getCuentaDoctorByNombre($nombreCuenta)
   {
@@ -678,6 +730,30 @@ class ConectorBD
       $query->bindParam(':id_usuario', $id_usuario);
       $query->execute();
       // Aquí puedes realizar alguna comprobación o manejo de errores si es necesario
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+
+
+  public function insertIntoCarrito($idUsuario, $idMedicamento, $categoria, $nombre, $precio, $principioActivo, $descripcion)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("INSERT INTO carrito (id_usuario, id_medicamento, categoria, nombre, precio, principio_activo, descripcion, existencia)
+                                  VALUES (:idUsuario, :idMedicamento, :categoria, :nombre, :precio, :principioActivo, :descripcion, 1)");
+
+      $query->bindParam(':idUsuario', $idUsuario);
+      $query->bindParam(':idMedicamento', $idMedicamento);
+      $query->bindParam(':categoria', $categoria);
+      $query->bindParam(':nombre', $nombre);
+      $query->bindParam(':precio', $precio);
+      $query->bindParam(':principioActivo', $principioActivo);
+      $query->bindParam(':descripcion', $descripcion);
+
+      $query->execute();
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }
