@@ -12,6 +12,8 @@ include("Cuenta.php");
 include("Doctor.php");
 include("Establecimiento.php");
 include("Especialidad.php");
+include("Horario.php");
+include("Fecha.php");
 class Gestor_Citas
 {
   public $fabritaCitaMedica;
@@ -19,6 +21,7 @@ class Gestor_Citas
   public $paciente;
   public $horario;
   public $establecimiento;
+  public $fecha;
 
   public function crearFabrica($doctor, $paciente, $horario, $establecimiento, $fecha)
   {
@@ -63,6 +66,24 @@ class Gestor_Citas
     return  $idEstablecimiento;
   }
 
+  public function getFecha($fecha){
+    $this->fecha=new Fecha($fecha);
+  }
+
+  public function getHorario($horario){
+    $this->horario=new Horario($horario);
+  }
+
+  public function getEstablecimiento($nombre){
+    $proxy = new ProxyCitaMedica();
+    $result = $proxy->getEstablecimiento($nombre);
+    $this->establecimiento = new Establecimiento(
+      $result['nombre'],
+      $result['Id_Direccion_E'],
+      new Especialidad($result['Especialidad'])
+    );
+  }
+
   public function getDoctor($nombre){
     $proxy = new ProxyCitaMedica();
     $result = $proxy->getDoctor($nombre);
@@ -77,28 +98,10 @@ class Gestor_Citas
       $result['c_Profesional'],
       $result['formacion']
     );
-    echo $this->doctor->nombre;
-    echo $this->doctor->apellido;
-    echo $this->doctor->telefono;
-    echo $this->doctor->correo;
-    echo $this->doctor->contraseña;
-    echo $this->doctor->direccion;
-    echo $this->doctor->especialidad;
-    echo $this->doctor->cedulaProfesional;
-    echo $this->doctor->formacion ."\n\n\n\n";
-
   }
 
-  public function getEstablecimiento($nombre){
+  public function setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha){
     $proxy = new ProxyCitaMedica();
-    $result = $proxy->getEstablecimiento($nombre);
-    $this->establecimiento = new Establecimiento(
-      $result['nombre'],
-      $result['Id_Direccion_E'],
-      new Especialidad($result['Especialidad'])
-    );
-    echo $this->establecimiento->nombre;
-    echo $this->establecimiento->direccion;
-    echo $this->establecimiento->especialidad->especialidad;
+    $proxy->setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha);
   }
 }

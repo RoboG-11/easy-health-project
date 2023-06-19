@@ -8,7 +8,7 @@ class FabricaRecetaMedica extends FabricaAbstracta{
     public function getObjeto(){
         return $this->recetaMedica;
     }
-    public function creaCitaMedica($doctor,$paciente,$horario,$establecimiento){
+    public function creaCitaMedica($doctor, $paciente, $horario, $establecimiento, $fecha){
         return null;
     }
     

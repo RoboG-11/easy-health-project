@@ -434,7 +434,23 @@ class ConectorBD
     }
   }
 
-
+  public function setCitamedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("INSERT INTO citas (Id_Cita, Id_Doctor, Id_Paciente, Horario, Id_Direccion_E, Fecha)
+                                        VALUES (:idCita, :doctor, :paciente, :horario, :establecimiento, :fecha)");
+      $query->bindParam(':idCita', $idCita);
+      $query->bindParam(':doctor', $doctor);
+      $query->bindParam(':paciente', $paciente);
+      $query->bindParam(':horario', $horario);
+      $query->bindParam(':establecimiento', $establecimiento);
+      $query->bindParam(':fecha', $fecha);
+      $query->execute();
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
 
 

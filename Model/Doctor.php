@@ -1,5 +1,6 @@
 <?php
 class Doctor extends Cuenta {
+      
     public $especialidad;
     public $cedulaProfesional;
     public $formacion;
