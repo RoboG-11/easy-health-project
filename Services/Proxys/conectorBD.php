@@ -10,10 +10,10 @@ class ConectorBD
 
   public function __construct()
   {
-    $this->host = 'localhost:3306';
+    $this->host = 'localhost:3308';
     $this->db = 'easyhealth';
     $this->user = 'root';
-    $this->password = "";
+    $this->password = "NegritO2001";
     $this->charset = 'utf8mb4';
   }
 
@@ -330,6 +330,7 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+
   public function getEstablecimientoByName($nombreEstablecimiento)
   {
     $connection = $this->connect();
@@ -347,6 +348,9 @@ class ConectorBD
     }
   }
 
+  public function getIDCuentaPaciente($nombre, $apellido, $telefono) {
+    
+  }
 
   public function showDoctoresByEstablecimiento($establecimiento)
   {
