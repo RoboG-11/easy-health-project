@@ -330,6 +330,24 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+  public function getCuentaPacienteByNombre($nombreCuenta)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT c.nombre, c.apellido, c.telefono, c.correo, c.password, c.id_direccion_c, 
+                                      d.id_cuenta ,d.sexo, d.edad, d.peso,d.fecha_nacimiento,d.nacionalidad,d.enfermedad_cronica,
+                                      d.alergias,d.nss
+                                      FROM cuentas c
+                                      JOIN pacientes d ON c.id_cuenta = d.id_cuenta
+                                      WHERE c.nombre = :nombreCuenta");
+      $query->bindParam(':nombreCuenta', $nombreCuenta);
+      $query->execute();
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+      return $result;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
   public function getEstablecimientoByName($nombreEstablecimiento)
   {
