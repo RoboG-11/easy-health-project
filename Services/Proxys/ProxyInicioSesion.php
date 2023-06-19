@@ -51,4 +51,10 @@ class ProxyInicioSesion
         return $userInfo['correo'];
     }
 
+        public function getIdCuenta()
+    {
+        $idCuenta = $this->conector->getIdCuenta($this->email, $this->password);
+        return $idCuenta;
+    }
+
 }
