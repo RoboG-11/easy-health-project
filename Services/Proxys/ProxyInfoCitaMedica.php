@@ -40,9 +40,12 @@ class ProxyCitaMedica
     return $this->conector->getEstablecimientoByName($nombre);
   }
 
-
   public function setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha){
     return $this->conector->setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha);
+  }
+
+  public function getIdCuenta($nombre, $apellido, $telefono) {
+    return  $this->conector->getIdCuentaUsuario($nombre, $apellido, $telefono); 
   }
 
 }

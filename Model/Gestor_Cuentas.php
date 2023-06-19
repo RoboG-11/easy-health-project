@@ -102,4 +102,11 @@ class GestorCuentas
 
     return $rolCuenta;
   }
+
+  public function getIdCuenta($nombre, $apellido, $telefono){
+    $proxy = new ProxyCitaMedica($nombre, $apellido, $telefono);
+    $idCuenta = $proxy->getIdCuenta($nombre, $apellido, $telefono);
+
+    return $idCuenta;
+  }
 }
