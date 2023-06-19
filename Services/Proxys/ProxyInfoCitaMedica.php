@@ -50,4 +50,16 @@ class ProxyCitaMedica
     return  $this->conector->getIdCuentaUsuario($nombre, $apellido, $telefono); 
   }
 
+  public function updatePaciente($idCuenta, $sexo, $edad, $peso, $fechaNacimiento, $nacionalidad, $enfermedadCronica, $alergias, $nss){
+    $this->conector->updatePaciente($idCuenta, $sexo, $edad, $peso, $fechaNacimiento, $nacionalidad, $enfermedadCronica, $alergias, $nss);    
+  }
+
+  public function updateDoctor($idDoctor, $idEspecialidad, $cProfesional, $formacion, $idEstablecimiento, $sexo){
+    $this->conector->updateDoctor($idDoctor, $idEspecialidad, $cProfesional, $formacion, $idEstablecimiento, $sexo);
+  }
+
+  public function getIdEstablecimiento($nombre){
+      return $this->getIdEstablecimiento($nombre);
+  }
+
 }
