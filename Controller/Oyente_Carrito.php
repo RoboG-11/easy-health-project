@@ -39,5 +39,7 @@ $gestor = new Gestor_Carrito($carrito);
 
 $result = $gestor->getInfoProducto($nombre);
 
-$carrito->agregarProducto($result);
+// $carrito->agregarProducto($result);
 // var_dump($carrito);
+
+var_dump($nombre);

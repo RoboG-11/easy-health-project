@@ -90,13 +90,14 @@
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
               <img src="Medicamentos/picot">
-              <form action="../Services/Proxys/ProxyProductos.php" method="POST">
                 <input class="m-0 fw-bold fs-5" type="hidden" name="nombre" value="Sal de uvas picot Polvo Efervescente">
                 <p class="m-0 fw-bold fs-5">Sal de uvas picot Polvo Efervescente</p>
                 <span class="m-0 fw-light">Polvo Sobre Bicarbonato de sodio 2.485 G</span>
                 <p class="price-medicine m-0 fw-bold fs-5">$36.00 MXN</p>
-                <button class="btn btn-primary">Añadir al carrito</button>
-              </form>
+                <form action="../Controller/Oyente_Carrito.php" method="POST">
+                  <input type="hidden" name="producto" value="Sal de uvas picot Polvo Efervescente">
+                  <button class="btn btn-primary">Añadir al carrito</button>
+                </form>
             </div>
           </div>
 
@@ -119,7 +120,10 @@
               <p class="m-0 fw-bold fs-5">Silka Medic Gel para Pie de Atleta</p>
               <span class="m-0 fw-light">30 G Gel Tubo Terbinafina 1 G</span>
               <p class="price-medicine m-0 fw-bold fs-5">$123.50 MXN</p>
-              <button class="btn btn-primary">Añadir al carrito</button>
+              <form action="../Controller/Oyente_Carrito.php"  method="POST">
+                <input type="hidden" name="producto" value="Silka Medic Gel para Pie de Atleta">
+                <button class="btn btn-primary">Añadir al carrito</button>
+              </form>
             </div>
           </div>
 
@@ -129,7 +133,10 @@
               <p class="m-0 fw-bold fs-5">Falcon Proteína Orgánica Vainilla</p>
               <span class="m-0 fw-light">1.17 KG Polvo Bote</span>
               <p class="price-medicine m-0 fw-bold fs-5">$1,069.00 MXN</p>
-              <button class="btn btn-primary">Añadir al carrito</button>
+              <form action="../Controller/Oyente_Carrito.php" method="POST">
+                <input type="hidden" name="producto" value="Falcon Proteína Orgánica Vainilla">
+                <button class="btn btn-primary">Añadir al carrito</button>
+              </form>
             </div>
           </div>
 
@@ -139,7 +146,10 @@
               <p class="m-0 fw-bold fs-5">Contour Plus Diabetes Glucometro</p>
               <span class="m-0 fw-light">1 Pieza Caja</span>
               <p class="price-medicine m-0 fw-bold fs-5">$399.00 MXN</p>
-              <button class="btn btn-primary">Añadir al carrito</button>
+                <form action="../Controller/Oyente_Carrito.php" method="POST">
+                  <input type="hidden" name="producto" value="Contour Plus Diabetes Glucometro">
+                  <button class="btn btn-primary">Añadir al carrito</button>
+                </form>
             </div>
           </div>
 
@@ -149,7 +159,10 @@
               <p class="m-0 fw-bold fs-5">Bbtips Pañales unisex Etapa 4</p>
               <span class="m-0 fw-light">40 Piezas Bolsa</span>
               <p class="price-medicine m-0 fw-bold fs-5">$170.00 MXN</p>
-              <button class="btn btn-primary">Añadir al carrito</button>
+              <form action="../Controller/Oyente_Carrito.php" method="POST">
+                <input type="hidden" name="producto" value="Bbtips Pañales unisex Etapa 4">
+                <button class="btn btn-primary">Añadir al carrito</button>
+              </form>
             </div>
           </div>
 
