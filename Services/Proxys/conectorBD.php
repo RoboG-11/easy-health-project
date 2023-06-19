@@ -250,7 +250,25 @@ class ConectorBD
     }
   }
 
+  public function getRolCuenta($nombre, $telefono)
+  {
+    $connection = $this->connect();
 
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT Id_Rol FROM cuentas WHERE Nombre = :nombre AND Telefono = :telefono");
+      $query->execute(['nombre' => $nombre, 'telefono' => $telefono]);
+
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+
+      if ($result) {
+        return $result['Id_Rol'];
+      } else {
+        return false; // La cuenta no existe
+      }
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
   public function getDoctors()
   {
@@ -289,6 +307,64 @@ class ConectorBD
       }
 
       return $nombresEstablecimientos;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function getCuentaDoctorByNombre($nombreCuenta)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT c.nombre, c.apellido, c.telefono, c.correo, c.password, c.id_direccion_c, 
+                                      d.id_doctor,d.id_especialidad, d.c_Profesional, d.formacion 
+                                      FROM cuentas c
+                                      JOIN doctores d ON c.id_cuenta = d.id_doctor
+                                      WHERE c.nombre = :nombreCuenta");
+      $query->bindParam(':nombreCuenta', $nombreCuenta);
+      $query->execute();
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+
+      return $result;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function getEstablecimientoByName($nombreEstablecimiento)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT nombre, Id_Direccion_E, Especialidad, id_Establecimento
+                                      FROM establecimientos
+                                      WHERE nombre = :nombreE");
+      $query->bindParam(':nombreE', $nombreEstablecimiento);
+      $query->execute();
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+
+      return $result;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
+
+  public function getIdCuentaUsuario($nombre, $apellido, $telefono)
+  {
+    $connection = $this->connect();
+
+    if ($connection !== null) {
+      $query = $connection->prepare("SELECT Id_Cuenta FROM cuentas WHERE Nombre = :nombre AND Apellido = :apellido AND Telefono = :telefono");
+      $query->bindParam(':nombre', $nombre);
+      $query->bindParam(':apellido', $apellido);
+      $query->bindParam(':telefono', $telefono);
+      $query->execute();
+
+      if ($query->rowCount()) {
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['Id_Cuenta'];
+      } else {
+        return false; // El usuario no existe
+      }
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }
@@ -380,7 +456,23 @@ class ConectorBD
     }
   }
 
-
+  public function setCitamedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("INSERT INTO citas (Id_Cita, Id_Doctor, Id_Paciente, Horario, Id_Direccion_E, Fecha)
+                                        VALUES (:idCita, :doctor, :paciente, :horario, :establecimiento, :fecha)");
+      $query->bindParam(':idCita', $idCita);
+      $query->bindParam(':doctor', $doctor);
+      $query->bindParam(':paciente', $paciente);
+      $query->bindParam(':horario', $horario);
+      $query->bindParam(':establecimiento', $establecimiento);
+      $query->bindParam(':fecha', $fecha);
+      $query->execute();
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
 
 
@@ -423,8 +515,7 @@ class ConectorBD
   //saul
   public function getProductInfo($nameProduct){
     $connection = $this->connect();
-
-    if($connection !== null){
+    if ($connection !== null) {
       $query = $connection->prepare('SELECT * FROM medicamentos WHERE nombre = :product');
       $query->execute(['product' => $nameProduct]);
       return $query->fetch(PDO::FETCH_ASSOC);

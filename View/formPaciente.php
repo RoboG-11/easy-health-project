@@ -1,4 +1,4 @@
-<form>
+<form action="../Controller/Oyente_Paciente.php" method="POST">
   <div class="row mb-3">
     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto de perfil</label>
     <div class="col-md-8 col-lg-9">
@@ -13,9 +13,9 @@
     <label for="sexo" class="col-md-4 col-lg-3 col-form-label">Sexo:</label>
     <div class="col-md-8 col-lg-9">
       <select name="sexo" class="form-select" id="sexo">
-        <option value="masculino">Masculino</option>
-        <option value="femenino">Femenino</option>
-        <option value="otro">Otro</option>
+        <option value="masculino" name="masculino">Masculino</option>
+        <option value="femenino" name="femenino">Femenino</option>
+        <option value="otro" name="otro">Otro</option>
       </select>
     </div>
   </div>

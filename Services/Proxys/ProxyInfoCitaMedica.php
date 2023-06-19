@@ -11,8 +11,6 @@ class ProxyCitaMedica
   public function __construct()
   {
     $this->conector = new ConectorBD();
-    //$this->doctores = $doctores;
-    //$this->establecimientos = $establecimientos;
   }
 
   public function getDoctoresByEstablecimiento($establecimiento)
@@ -33,4 +31,21 @@ class ProxyCitaMedica
   public function getNombresDoctores($id){
     return $this->conector->showNameDoctor($id);
   }
+
+  public function getDoctor($nombre){
+    return $this->conector->getCuentaDoctorByNombre($nombre);
+  }
+
+  public function getEstablecimiento($nombre){
+    return $this->conector->getEstablecimientoByName($nombre);
+  }
+
+  public function setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha){
+    return $this->conector->setCitaMedica($idCita, $doctor, $paciente, $horario, $establecimiento, $fecha);
+  }
+
+  public function getIdCuenta($nombre, $apellido, $telefono) {
+    return  $this->conector->getIdCuentaUsuario($nombre, $apellido, $telefono); 
+  }
+
 }
