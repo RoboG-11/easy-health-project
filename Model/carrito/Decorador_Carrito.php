@@ -1,5 +1,5 @@
 <?php
-require_once './I_Carrito.php';
+require_once 'I_Carrito.php';
 
 class Decorador_Carrito implements I_Carrito {
 

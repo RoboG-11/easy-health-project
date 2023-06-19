@@ -40,6 +40,8 @@
 
   <?php
   include 'header.php';
+  include '../Controller/Oyente_Carrito.php';
+  var_dump($carrito);
   ?>
 
   <main id="main">

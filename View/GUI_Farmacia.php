@@ -66,12 +66,10 @@
               <a href="#">Bebés</a>
             </li>
           </ol> -->
-          <div 
-            class="cartContainer"
-          >
+          <div class="cartContainer">
             <!-- <p>asdasd</p> -->
             <!-- <a href="./GUI_Carrito.php"> -->
-              <!-- <img src="assets/img/products/product-1.png" alt="product" class="img-fluid"> -->
+            <!-- <img src="assets/img/products/product-1.png" alt="product" class="img-fluid"> -->
             <!-- </a> -->
             <a href="GUI_Carrito.php">
               <img type="button" src="./assets/img/cart.svg" class="cart" alt="cart">
@@ -92,7 +90,7 @@
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
               <img src="Medicamentos/picot">
-              <form action="../Services/Proxys/ProxyProductos.php" method="POST" > 
+              <form action="../Services/Proxys/ProxyProductos.php" method="POST">
                 <input class="m-0 fw-bold fs-5" type="hidden" name="nombre" value="Sal de uvas picot Polvo Efervescente">
                 <p class="m-0 fw-bold fs-5">Sal de uvas picot Polvo Efervescente</p>
                 <span class="m-0 fw-light">Polvo Sobre Bicarbonato de sodio 2.485 G</span>
@@ -108,7 +106,10 @@
               <p class="m-0 fw-bold fs-5">Tempra</p>
               <span class="m-0 fw-light">Tableta Caja Paracetamol 500 MG</span>
               <p class="price-medicine m-0 fw-bold fs-5">$55.00 MXN</p>
-              <button class="btn btn-primary">Añadir al carrito</button>
+              <form action="../Controller/Oyente_Carrito.php" method="POST">
+                <input type="hidden" name="producto" value="Tempra">
+                <button class="btn btn-primary" type="submit">Añadir al carrito</button>
+              </form>
             </div>
           </div>
 
