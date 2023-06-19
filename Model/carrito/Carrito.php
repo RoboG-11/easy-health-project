@@ -3,11 +3,13 @@ require_once './I_Carrito.php';
 
 class Carrito implements I_Carrito{
 
-	private $productos = [
-		'Penicilina',
-		'Amoxixilina', 
-		'Pregabalina'
-	];
+	// private $productos = [
+	// 	'Penicilina',
+	// 	'Amoxixilina', 
+	// 	'Pregabalina'
+	// ];
+
+	private $productos = [];
 
 	public function __construct(){
 		

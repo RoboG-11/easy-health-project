@@ -3,13 +3,12 @@
 
 	class ProxyProductos{
 		private $conector;
-		private $producto;
 		public function __construct(){
 			$this->conector = new ConectorBD();
 		}
 
 		public function getInfoProduct($nombreProducto){
-				$this->producto = $nombreProducto;
+			return $this->conector->getProductInfo($nombreProducto);
 		}
 	}
 

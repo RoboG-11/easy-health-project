@@ -1,13 +1,20 @@
 <?php
 require_once('./Carrito_InfoPago.php');
+require_once('../../Services/Proxys/ProxyProductos.php');
 
 class Gestor_Carrito{
 
 	private I_Carrito $carrito;
+	private $proxyCarrito;
 
 	public function __construct($carrito){
 		//creates a new Gestor Carrito object
 		$this->carrito=$carrito;
+		$this->proxyCarrito=new ProxyProductos();
+	}
+
+	public function getInfoProducto($nameProduct){
+		return $this->proxyCarrito->getInfoProduct($nameProduct);
 	}
 
 	public function getCarrito(){
