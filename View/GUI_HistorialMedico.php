@@ -73,30 +73,44 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
                 </div>
                 <div class="item-name flex justify-between space-x-3 w-full">
                   <p class="font-bold text-easyLetter">Fecha de nacimiento: </p>
-                  <p>12/03/78</p>
+                  <p>
+
+                  </p>
                 </div>
                 <div class="item-name flex justify-between space-x-3 w-full">
                   <p class="font-bold text-easyLetter">Nacionalidad:</p>
-                  <p>Mexicana</p>
+                  <p>
+
+                  </p>
                 </div>
                 <div class="item-name flex justify-between space-x-3 w-full">
                   <p class="font-bold text-easyLetter">Numero de seguro social:</p>
-                  <p>440-02-2763</p>
+                  <p>
+
+                  </p>
                 </div>
               </div>
 
               <div class="flex flex-col w-1/2 space-y-2 pl-3">
                 <div class="item-age flex justify-between space-x-3">
                   <p class="font-bold text-easyLetter">Edad:</p>
-                  <p>58 años</p>
+                  <p>
+                    <?php
+
+                    ?>
+                  </p>
                 </div>
                 <div class="item-weigth flex justify-between space-x-3">
                   <p class="font-bold text-easyLetter">Peso:</p>
-                  <p>104 kg</p>
+                  <p>
+
+                  </p>
                 </div>
                 <div class="item-sexo flex justify-between space-x-3">
                   <p class="font-bold text-easyLetter">Sexo:</p>
-                  <p>masculino</p>
+                  <p>
+
+                  </p>
                 </div>
               </div>
 
@@ -104,11 +118,15 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
             <div class="flex flex-col space-y-2">
               <div class="item-age flex justify-between space-x-3">
                 <p class="font-bold text-easyLetter">Enfermedad crónica:</p>
-                <p>Diabetes, hipertensión e insuficiencia renal</p>
+                <p>
+
+                </p>
               </div>
               <div class="item-weigth flex justify-between space-x-3">
                 <p class="font-bold text-easyLetter">Alergías:</p>
-                <p>Acido acetil salisilico y penicilina</p>
+                <p>
+
+                </p>
               </div>
             </div>
           </div>
@@ -153,7 +171,7 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
               </div>
               <div class="item-name flex justify-between space-x-3 w-full">
                 <p class="font-bold text-easyLetter">Descripción: </p>
-                <p>Problemas con hipertensión</p>
+                <p>Glucosa Alta</p>
               </div>
             </div>
 
@@ -179,7 +197,7 @@ $direccionUsuario = isset($_SESSION['direccionUsuario']) ? $_SESSION['direccionU
               </div>
               <div class="item-name flex justify-between space-x-3 w-full">
                 <p class="font-bold text-easyLetter">Descripción: </p>
-                <p>Problemas con hipertensión</p>
+                <p>Insuficiencia renal</p>
               </div>
             </div>
 
