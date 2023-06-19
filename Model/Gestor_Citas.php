@@ -181,10 +181,7 @@ class Gestor_Citas
       $idDireccionE = $citaMedica['Id_Direccion_E'];
       $nombreDoctor = $citaMedica['NombreDoctor'];
       $nombreEstablecimiento = $citaMedica['NombreEstablecimiento'];
-      // Agrega aquí los campos adicionales que necesitas
-    
-      // Realiza las operaciones que necesites con los datos de la cita médica
-      // Por ejemplo, puedes mostrar los datos en la interfaz gráfica
+
       echo "ID Cita: $idCita<br>";
       echo "ID Paciente: $idPaciente<br>";
       echo "ID Doctor: $idDoctor<br>";
@@ -193,7 +190,6 @@ class Gestor_Citas
       echo "ID Dirección E: $idDireccionE<br>";
       echo "Doctor: $nombreDoctor<br>";
       echo "Establecimiento: $nombreEstablecimiento<br>";
-      // Agrega aquí la impresión de los campos adicionales que necesitas
       echo "<br>";
     }
   }
