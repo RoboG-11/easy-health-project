@@ -4,10 +4,12 @@ require_once('./Carrito_InfoPago.php');
 class Gestor_Carrito{
 
 	private I_Carrito $carrito;
+	private $conector;
 
 	public function __construct($carrito){
 		//creates a new Gestor Carrito object
 		$this->carrito=$carrito;
+		$this->conector=new ConectorBD();
 	}
 
 	public function getCarrito(){

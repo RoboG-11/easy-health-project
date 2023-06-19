@@ -1,4 +1,5 @@
 <?php
+include_once('Cuenta.php');
 include_once('../Model/Cuenta.php');
 
 class Paciente extends Cuenta {

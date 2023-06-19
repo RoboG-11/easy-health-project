@@ -10,10 +10,10 @@ class ConectorBD
 
   public function __construct()
   {
-    $this->host = 'localhost:3308';
+    $this->host = 'localhost:3306';
     $this->db = 'easyhealth';
     $this->user = 'root';
-    $this->password = "NegritO2001";
+    $this->password = "";
     $this->charset = 'utf8mb4';
   }
 
@@ -299,6 +299,7 @@ class ConectorBD
     if($connection !== null){
       $query = $connection->prepare('SELECT * FROM medicamentos WHERE nombre = :product');
       $query->execute(['product' => $product]);
+      return $query->fetch(PDO::FETCH_ASSOC);
     } else {
       throw new Exception("Error de conexión a la base de datos");
     }

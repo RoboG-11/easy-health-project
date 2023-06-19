@@ -67,10 +67,16 @@
             </li>
           </ol> -->
           <div 
-            class="price-medicine"
+            class="cartContainer"
           >
-            <p>asdasd</p>
-            <!-- <img src="./assets/img/about.jpg" class="hero alt="hero"> -->
+            <!-- <p>asdasd</p> -->
+            <!-- <a href="./GUI_Carrito.php"> -->
+              <!-- <img src="assets/img/products/product-1.png" alt="product" class="img-fluid"> -->
+            <!-- </a> -->
+            <a href="GUI_Carrito.php">
+              <img type="button" src="./assets/img/cart.svg" class="cart" alt="cart">
+            </a>
+            <p>0</p>
           </div>
         </div>
 
@@ -86,10 +92,13 @@
           <div class="col-12 col-md-6 col-lg-4 pb-5">
             <div class="style-card d-flex flex-column justify-content-center align-items-center gap-4 shadow-lg rounded-3">
               <img src="Medicamentos/picot">
-              <p class="m-0 fw-bold fs-5">Sal de uvas picot Polvo Efervescente</p>
-              <span class="m-0 fw-light">Polvo Sobre Bicarbonato de sodio 2.485 G</span>
-              <p class="price-medicine m-0 fw-bold fs-5">$36.00 MXN</p>
-              <button class="btn btn-primary">Añadir al carrito</button>
+              <form action="../Services/Proxys/ProxyProductos.php" method="POST" > 
+                <input class="m-0 fw-bold fs-5" type="hidden" name="nombre" value="Sal de uvas picot Polvo Efervescente">
+                <p class="m-0 fw-bold fs-5">Sal de uvas picot Polvo Efervescente</p>
+                <span class="m-0 fw-light">Polvo Sobre Bicarbonato de sodio 2.485 G</span>
+                <p class="price-medicine m-0 fw-bold fs-5">$36.00 MXN</p>
+                <button class="btn btn-primary">Añadir al carrito</button>
+              </form>
             </div>
           </div>
 
