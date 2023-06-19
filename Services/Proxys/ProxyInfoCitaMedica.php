@@ -22,6 +22,10 @@ class ProxyCitaMedica
   {
     return $this->conector->showAllPlaces();
   }
+  public function getAllCitas($nombreUsuario)
+  {
+    return $this->conector->showAllCitas($nombreUsuario);
+  }
 
   public function getIdEstablecimientoByName($nombre)
   {

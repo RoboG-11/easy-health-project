@@ -33,26 +33,32 @@ class Gestor_Citas
 
   public function wholePart($doctor, $paciente, $horario, $establecimiento, $fecha)
   {
-    $this->fechaObjeto=$this->getFecha($fecha);
-    $this->horarioObjeto=$this->getHorario($horario);
-    $this->pacienteObjeto=$this->getPaciente($paciente);
-    $this->establecimientoObjeto=$this->getEstablecimiento($establecimiento);
-    $this->doctorObjeto= $this->getDoctor($doctor);
-
+    $this->fechaObjeto = $this->getFecha($fecha);
+    $this->horarioObjeto = $this->getHorario($horario);
+    $this->pacienteObjeto = $this->getPaciente($paciente);
+    $this->establecimientoObjeto = $this->getEstablecimiento($establecimiento);
+    $this->doctorObjeto = $this->getDoctor($doctor);
   }
 
-  public function crearCita($doctor, $paciente, $horario, $establecimiento, $fecha){
+  public function crearCita($doctor, $paciente, $horario, $establecimiento, $fecha)
+  {
+    //
     $this->wholePart($doctor, $paciente, $horario, $establecimiento, $fecha);
-    $this->fabritaCitaMedica->creaCitaMedica($this->doctorObjeto, $this->pacienteObjeto, 
-                                            $this->horarioObjeto, $this->establecimientoObjeto,
-                                            $this->fechaObjeto);
-    $this->citaMedica=$this->fabritaCitaMedica->getObjeto();
-    $this->citaMedica->visualizaCitaMedica();
+    $this->fabritaCitaMedica->creaCitaMedica(
+      $this->doctorObjeto,
+      $this->pacienteObjeto,
+      $this->horarioObjeto,
+      $this->establecimientoObjeto,
+      $this->fechaObjeto
+    );
+    $this->citaMedica = $this->fabritaCitaMedica->getObjeto();
+    //$this->citaMedica->visualizaCitaMedica();
     $this->setCitaMedica();
+    header("location: ../View/GUI_Citas.php");
   }
 
 
-  
+
   //Obtiene el objeto fecha a partir de la fecha
   public function getFecha($fecha)
   {
@@ -80,6 +86,7 @@ class Gestor_Citas
   public function getPaciente($nombre)
   {
     $proxy = new ProxyCitaMedica();
+
     $result = $proxy->getPaciente($nombre);
     return new Paciente(
       $result['id_cuenta'],
@@ -125,13 +132,17 @@ class Gestor_Citas
     // echo $this->doctor->contraseña;
     // echo $this->doctor->formacion;
   }
-
   public function setCitaMedica()
   {
     $proxy = new ProxyCitaMedica();
-    $proxy->setCitaMedica($this->citaMedica->getID(), $this->doctorObjeto->id, $this->pacienteObjeto->id, 
-                          $this->horarioObjeto->hora, $this->establecimientoObjeto->id, 
-                          $this->fechaObjeto->fecha);
+    $proxy->setCitaMedica(
+      $this->citaMedica->getID(),
+      $this->doctorObjeto->id,
+      $this->pacienteObjeto->getID(),
+      $this->horarioObjeto->hora,
+      $this->establecimientoObjeto->id,
+      $this->fechaObjeto->fecha
+    );
   }
   // Mostrar los nombres de los establecimientos en el formulario
   public function mostrarEstablecimientos()
@@ -156,6 +167,37 @@ class Gestor_Citas
       echo '<option value="' . $nombresDoctores . '">' . $nombresDoctores . '</option>';
     }
   }
+  public function mostrarCitas($nombreUsuario)
+  {
+    $proxy = new ProxyCitaMedica();
+    $citasMedicas = $proxy->getAllCitas($nombreUsuario);
+
+    foreach ($citasMedicas as $citaMedica) {
+      $idCita = $citaMedica['Id_Cita'];
+      $idPaciente = $citaMedica['Id_Paciente'];
+      $idDoctor = $citaMedica['Id_Doctor'];
+      $fecha = $citaMedica['Fecha'];
+      $horario = $citaMedica['Horario'];
+      $idDireccionE = $citaMedica['Id_Direccion_E'];
+      $nombreDoctor = $citaMedica['NombreDoctor'];
+      $nombreEstablecimiento = $citaMedica['NombreEstablecimiento'];
+      // Agrega aquí los campos adicionales que necesitas
+    
+      // Realiza las operaciones que necesites con los datos de la cita médica
+      // Por ejemplo, puedes mostrar los datos en la interfaz gráfica
+      echo "ID Cita: $idCita<br>";
+      echo "ID Paciente: $idPaciente<br>";
+      echo "ID Doctor: $idDoctor<br>";
+      echo "Fecha: $fecha<br>";
+      echo "Horario: $horario<br>";
+      echo "ID Dirección E: $idDireccionE<br>";
+      echo "Doctor: $nombreDoctor<br>";
+      echo "Establecimiento: $nombreEstablecimiento<br>";
+      // Agrega aquí la impresión de los campos adicionales que necesitas
+      echo "<br>";
+    }
+  }
+
 
   public function obtenerIdEstablecimientoPorNombre($nombre)
   {

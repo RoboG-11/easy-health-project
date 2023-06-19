@@ -10,10 +10,10 @@ class ConectorBD
 
   public function __construct()
   {
-    $this->host = 'localhost:3308';
+    $this->host = 'localhost:3306';
     $this->db = 'easyhealth';
     $this->user = 'root';
-    $this->password = "NegritO2001";
+    $this->password = "";
     $this->charset = 'utf8mb4';
   }
 
@@ -311,6 +311,62 @@ class ConectorBD
       throw new Exception("Error de conexión a la base de datos");
     }
   }
+  // public function showAllCitas($nombreUsuario)
+  // {
+  //   $connection = $this->connect();
+  //   if ($connection !== NULL) {
+  //     $query = $connection->prepare("SELECT cm.* FROM citas cm JOIN pacientes p ON p.id_Cuenta = cm.id_Paciente JOIN cuentas c ON c.id_Cuenta = p.id_Cuenta WHERE c.Nombre = 'Daniel';");
+  //     $query->bindParam(':nombreUsuario', $nombreUsuario);
+  //     $query->execute();
+  //     $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  //     $nombresEstablecimientos = array();
+  //     foreach ($results as $row) {
+  //       $nombresEstablecimientos[] = $row['Nombre'];
+  //     }
+
+  //     return $nombresEstablecimientos;
+  //   } else {
+  //     throw new Exception("Error de conexión a la base de datos");
+  //   }
+  // }
+  public function showAllCitas($nombreUsuario)
+  {
+    $connection = $this->connect();
+    if ($connection !== NULL) {
+      $query = $connection->prepare("SELECT cm.*, c_doctor.Nombre AS NombreDoctor,
+                                    e.Nombre AS NombreEstablecimiento FROM citas cm JOIN pacientes p 
+                                    ON p.id_Cuenta = cm.id_Paciente JOIN cuentas c_paciente 
+                                    ON c_paciente.id_Cuenta = p.id_Cuenta JOIN cuentas c_doctor 
+                                    ON c_doctor.id_Cuenta = cm.id_Doctor JOIN establecimientos e 
+                                    ON e.id_Establecimento = cm.id_Direccion_E 
+                                    WHERE c_paciente.Nombre = :nombreUsuario;");
+      $query->bindParam(':nombreUsuario', $nombreUsuario);
+      $query->execute();
+      $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+      $citasMedicas = array();
+      foreach ($results as $row) {
+        $citaMedica = array(
+          'Id_Cita' => $row['Id_Cita'],
+          'Id_Paciente' => $row['Id_Paciente'],
+          'Id_Doctor' => $row['Id_Doctor'],
+          'Fecha' => $row['Fecha'],
+          'Horario' => $row['Horario'],
+          'Id_Direccion_E' => $row['Id_Direccion_E'],
+          'NombreDoctor' => $row['NombreDoctor'],
+          'NombreEstablecimiento' => $row['NombreEstablecimiento']
+          // Agrega aquí los campos adicionales que deseas obtener
+          // 'NombreCampo' => $row['NombreCampo']
+        );
+        $citasMedicas[] = $citaMedica;
+      }
+
+      return $citasMedicas;
+    } else {
+      throw new Exception("Error de conexión a la base de datos");
+    }
+  }
 
   public function getCuentaDoctorByNombre($nombreCuenta)
   {
@@ -343,6 +399,7 @@ class ConectorBD
       $query->bindParam(':nombreCuenta', $nombreCuenta);
       $query->execute();
       $result = $query->fetch(PDO::FETCH_ASSOC);
+
       return $result;
     } else {
       throw new Exception("Error de conexión a la base de datos");
@@ -601,7 +658,8 @@ class ConectorBD
   }
 
   //saul
-  public function getProductInfo($nameProduct){
+  public function getProductInfo($nameProduct)
+  {
     $connection = $this->connect();
     if ($connection !== null) {
       $query = $connection->prepare('SELECT * FROM medicamentos WHERE nombre = :product');
